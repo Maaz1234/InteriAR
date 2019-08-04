@@ -325,8 +325,7 @@ android:paddingRight="40dp"
         android:showText="true"
         android:splitTrack="false"
         android:switchTextAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FDFDFE"
-        android:textColorHint="#FDFDFE"
+        android:textAlignment="viewStart"
         android:textOff="Login"
         android:textOn="Signup"
         android:textSize="18sp"
@@ -336,8 +335,7 @@ android:paddingRight="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgView_logo"
-        app:track="@drawable/switch_track"
-        />
+        app:track="@drawable/switch_track" />
 
 
 </android.support.constraint.ConstraintLayout>
