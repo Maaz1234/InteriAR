@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/nav_cam"
+        android:icon="@drawable/ic_photo_camera"
+        android:title="Camera"/>
+
+    <item
+        android:id="@+id/nav_photo"
+        android:icon="@drawable/ic_gallery"
+        android:title="Photos"/>
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_interiar_logo_with_transparent_background_without_name_svg"
+       android:checked="true"
+        android:checkable="true"
+        android:title="Home"/>
+
+    <!--android:background="@drawable/custom_drawable_home_round_button"-->
+
+    <item
+        android:id="@+id/nav_cart"
+        android:icon="@drawable/ic_cart"
+        android:title="Cart"/>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_user"
+        android:title="Profile"/>
+
+</menu>

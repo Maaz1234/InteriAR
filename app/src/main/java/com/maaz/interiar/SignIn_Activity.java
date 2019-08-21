@@ -1,8 +1,10 @@
 package com.maaz.interiar;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,6 +16,9 @@ public class SignIn_Activity extends AppCompatActivity {
     private RadioButton radioSigninBtn, radioSignupBtn;
     private TextView forgetPassword, divider_text;
     private EditText signInEmail, signInPassword, signUpName, signUpEmail, signUpPassword;
+    private Button loginButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,8 @@ public class SignIn_Activity extends AppCompatActivity {
         signUpName = (EditText) findViewById(R.id.signUp_name);
         signUpEmail = (EditText) findViewById(R.id.signUp_email);
         signUpPassword = (EditText) findViewById(R.id.signUp_password);
+
+        loginButton = (Button) findViewById(R.id.login_btn);
 
 
 
@@ -57,6 +64,16 @@ public class SignIn_Activity extends AppCompatActivity {
                     forgetPassword.setVisibility(View.INVISIBLE);
                     divider_text.setText("Or SignUp with");
                 }
+            }
+        });
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(SignIn_Activity.this,Home_Activity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
