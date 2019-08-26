@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "88785554627",
+    "firebase_url": "https://interiar.firebaseio.com",
+    "project_id": "interiar",
+    "storage_bucket": "interiar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88785554627:android:e42299b11293fc0b",
+        "android_client_info": {
+          "package_name": "com.maaz.interiar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88785554627-esks7i4m8dh6go26pib0eeenea2lh6eo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.maaz.interiar",
+            "certificate_hash": "e60b398674c45de3f343fdc1c7082ac1f1b87fb4"
+          }
+        },
+        {
+          "client_id": "88785554627-9ge1ev3oh0uep9ikmbk4pmoffhpmgk16.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK4-Jmejdg1A3fDC4pewWkgxfIGmWbYOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88785554627-9ge1ev3oh0uep9ikmbk4pmoffhpmgk16.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
