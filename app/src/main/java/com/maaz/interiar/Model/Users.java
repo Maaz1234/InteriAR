@@ -2,7 +2,7 @@ package com.maaz.interiar.Model;
 
 public class Users
 {
-    private String email, password, name, username;
+    private String email, password, username;
 
     public Users()
     {
@@ -12,7 +12,7 @@ public class Users
     public Users(String email, String password, String name, String username) {
         this.email = email;
         this.password = password;
-        this.name = name;
+        //this.name = name;
         this.username = username;
     }
 
@@ -32,13 +32,13 @@ public class Users
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     public String getUsername() {
         return username;

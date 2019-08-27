@@ -32,7 +32,6 @@ public class SignIn_Activity extends AppCompatActivity {
     private TextView forgetPassword, divider_text;
     private EditText signInEmail, signInPassword, signUpName, signUpEmail, signUpPassword;
     private Button loginButton;
-    private String currentGroup;
     private ProgressDialog loadingBar;
     private String parentDBName = "Users";
 
@@ -117,9 +116,10 @@ public class SignIn_Activity extends AppCompatActivity {
         else if (TextUtils.isEmpty(password))
         {
             Toast.makeText(this, "Please Write Your Password", Toast.LENGTH_SHORT).show();
-        }         else
+        }
+        else
         {
-            //loadingBar.setTitle("Login Account");
+            loadingBar.setTitle("Login Account");
             loadingBar.setMessage("Please wait. While we are checking credentials");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
@@ -128,25 +128,25 @@ public class SignIn_Activity extends AppCompatActivity {
         }
     }
 
-    private void AllowAccessToAccount(final String email, final String password)
+    private void AllowAccessToAccount(final String username, final String password)
     {
-        FirebaseApp.initializeApp(this);
+        //FirebaseApp.initializeApp(this);
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(parentDBName).child(email).exists())
+                if(dataSnapshot.child(parentDBName).child(username).exists())
                 {
-                    Users userData = dataSnapshot.child(parentDBName).child(email).getValue(Users.class);
+                    Users userData = dataSnapshot.child(parentDBName).child(username).getValue(Users.class);
 
-                    if(userData.getEmail().equals(email))
+                    if(userData.getUsername().equals(username))
                     {
                         if (userData.getPassword().equals(password))
                         {
                             if(parentDBName.equals("Admins")) {
-                                Paper.book().write(Prevalent.UserEmailKey, email);
+                                Paper.book().write(Prevalent.UserEmailKey, username);
                                 Paper.book().write(Prevalent.UserPasswordKey, password);
 
                                 Toast.makeText(SignIn_Activity.this, "Welcome Admin you are logged in Successfully", Toast.LENGTH_SHORT).show();
@@ -157,7 +157,7 @@ public class SignIn_Activity extends AppCompatActivity {
                             }
                             else if (parentDBName.equals("Users"))
                             {
-                                Paper.book().write(Prevalent.UserEmailKey, email);
+                                Paper.book().write(Prevalent.UserEmailKey, username);
                                 Paper.book().write(Prevalent.UserPasswordKey, password);
 
                                 Toast.makeText(SignIn_Activity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
@@ -183,7 +183,8 @@ public class SignIn_Activity extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError)
+            {
 
             }
         });
