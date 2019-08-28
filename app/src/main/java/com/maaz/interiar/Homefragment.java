@@ -1,9 +1,11 @@
 package com.maaz.interiar;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -12,24 +14,53 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+
+
 public class Homefragment extends Fragment {
 
     SearchView mysearchview;
 
-    TextView categories, brands, products, favorites;
-    ViewPager viewPager;
-    PagerViewAdapter pagerViewAdapter;
+
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private PagerViewAdapter adapter;
+
+    public static Homefragment newInstance(){
+        Homefragment fragment = new Homefragment();
+        return fragment;
+    }
 
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView( LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
+       /* tabLayout = (TabLayout) v.findViewById(R.id.tablayout_home);
+        viewPager = (ViewPager) v.findViewById(R.id.fragment_container_home);
+        adapter = new PagerViewAdapter(getActivity().getSupportFragmentManager());
+*//*        adapter = new PagerViewAdapter (getSupportFragmentManager()); *//*
+
+        //Add fragment Here
+
+        adapter.AddFragment(new Camfragment());//index 0
+        adapter.AddFragment(new Homefragment());//index 1
+        adapter.AddFragment(new Assistant_Fragment());//index 2
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_photo_camera);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_interiar_logo_with_transparent_background_without_name_svg);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_assistant_black_24dp);*/
+
+        //Remove Shadow From the Action bar
+
+       /* ActionBar actionBar = getSupportActionBar();
+        actionBar.setElevation(0);*/
 
         mysearchview = (SearchView) v.findViewById(R.id.searchView);
-
         mysearchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -42,127 +73,10 @@ public class Homefragment extends Fragment {
             }
         });
 
-        categories = (TextView) v.findViewById(R.id.cat);
-        brands = (TextView) v.findViewById(R.id.br);
-        products = (TextView) v.findViewById(R.id.ltpro);
-        favorites = (TextView) v.findViewById(R.id.fav);
-
-        viewPager = (ViewPager) v.findViewById(R.id.fragment_container11);
-
-        // loadFragment(new Fragment_Home());
-
-        categories.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(0);
-            }
-        });
-
-        brands.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(1);
-            }
-        });
-
-        products.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(2);
-            }
-        });
-
-        favorites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(3);
-            }
-        });
-
-        pagerViewAdapter = new PagerViewAdapter(getActivity().getSupportFragmentManager());
-
-        viewPager.setAdapter(pagerViewAdapter);
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i1) {
-
-            }
-
-            @Override
-            public void onPageSelected(int i) {
-
-                onChangeTab(i);
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
-        });
-
-
-
-
-     return v;
+        return v;
     }
-
-    private boolean loadFragment(Fragment fragment) {
-        // switching fragment
-        if (fragment != null) {
-              getActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
-    }
-
-
-    @SuppressLint("ResourceAsColor")
-    private void onChangeTab(int i){
-
-    if (i == 0) {
-            categories.setTextSize(23);
-
-
-            brands.setTextSize(19);
-            products.setTextSize(19);
-            favorites.setTextSize(19);
-        }
-
-        if (i == 1) {
-            brands.setTextSize(23);
-
-
-            categories.setTextSize(19);
-            products.setTextSize(19);
-            favorites.setTextSize(19);
-        }
-
-        if (i == 2) {
-            products.setTextSize(23);
-
-
-            brands.setTextSize(19);
-            categories.setTextSize(19);
-            favorites.setTextSize(19);
-        }
-
-        if (i == 3) {
-            favorites.setTextSize(23);
-
-
-            brands.setTextSize(19);
-            products.setTextSize(19);
-            categories.setTextSize(19);
-        }
-    }
-
-
 
 }
+
 
 

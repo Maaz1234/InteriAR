@@ -7,46 +7,56 @@
     android:orientation="vertical"
     android:background="@android:color/holo_blue_bright">
 
-    <FrameLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <SearchView
-            android:layout_width="263dp"
-            android:layout_height="wrap_content"
-            android:iconifiedByDefault="false"
-            android:queryHint="Search here"
-            android:id="@+id/searchView"
-            android:layout_above="@id/bar">
-
-        </SearchView>
-    </FrameLayout>
-
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"/>
+        android:id="@+id/app_bar"
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:background="?android:attr/windowBackground"
+        >
 
-    <FrameLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:id="@+id/bar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/app_bar"
+            android:background="?android:attr/windowBackground"
+            app:layout_scrollFlags="scroll|enterAlways">
 
-    <include layout="@layout/tab_bar" />
-    <android.support.v4.view.ViewPager
-        android:id="@+id/fragment_container11"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="56dp"
-        android:layout_marginTop="52dp"/>
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:iconifiedByDefault="false"
+                android:orientation="horizontal"
+                android:queryHint="Search interiAR" />
 
-   </FrameLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_assistant_black_24dp"
+                
+                />
+        </android.support.v7.widget.Toolbar>
 
+       <!-- <android.support.design.widget.TabLayout
+            android:id="@+id/tablayout_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:tabMode="fixed"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/colorAccent"
+            >
+        </android.support.design.widget.TabLayout>
+
+           <android.support.v4.view.ViewPager
+            android:id="@+id/fragment_container_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/background_dark"
+            />-->
+
+    </android.support.design.widget.AppBarLayout>
 
 </RelativeLayout>
