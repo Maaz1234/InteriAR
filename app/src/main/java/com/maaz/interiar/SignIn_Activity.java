@@ -131,9 +131,6 @@ public class SignIn_Activity extends AppCompatActivity {
                 if (radioSigninBtn.isChecked())
                 {
                     SignInUser();
-                    //Intent intent = new Intent(SignIn_Activity.this, Home_Activity.class);
-                    //startActivity(intent);
-                    //finish();
                 }
                 else if (radioSignupBtn.isChecked())
                 {
@@ -178,6 +175,7 @@ public class SignIn_Activity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful())
                             {
+                                //AddUserToDatabase();
                                 Intent intent = new Intent(SignIn_Activity.this, Home_Activity.class);
                                 startActivity(intent);
                             }
@@ -219,6 +217,7 @@ public class SignIn_Activity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful())
                             {
+                                //AddUserToDatabase();
                                 Intent intent = new Intent(SignIn_Activity.this, Home_Activity.class);
                                 startActivity(intent);
                             }
@@ -254,7 +253,7 @@ public class SignIn_Activity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             if (account != null) {
-                signInEmail.setText(account.getEmail());
+                AddUserToDatabase();
                 Intent intent = new Intent(SignIn_Activity.this, Home_Activity.class);
                 startActivity(intent);
             }
@@ -262,5 +261,17 @@ public class SignIn_Activity extends AppCompatActivity {
             Toast.makeText(SignIn_Activity.this, "signInResult:failed code=" + e.getStatusCode(), Toast.LENGTH_SHORT).show();
             loadingBar.dismiss();
         }
+    }
+
+    private void AddUserToDatabase()
+    {
+        FirebaseUser User = mAuth.getCurrentUser();
+        String userID = User.getUid();
+        String email = User.getEmail();
+
+        final DatabaseReference RootRef;
+        RootRef = FirebaseDatabase.getInstance().getReference();
+
+        RootRef.child("Users").child(userID).child("email").setValue(email);
     }
 }

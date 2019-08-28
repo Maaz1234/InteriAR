@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Home_Activity extends AppCompatActivity {
 
 
@@ -25,6 +27,8 @@ public class Home_Activity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new Homefragment()).commit();
+
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navlistener = new BottomNavigationView.OnNavigationItemSelectedListener() {
