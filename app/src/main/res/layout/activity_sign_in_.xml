@@ -274,7 +274,7 @@
             android:layout_below="@id/forget_password"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="45dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/btn_shape"
             android:drawableBottom="@drawable/ic_arrow_forward_black_24dp"
@@ -282,7 +282,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/divider_txt"
-            app:layout_constraintTop_toBottomOf="@+id/signUp_password"
             />
         <!--app:layout_constraintTop_toBottomOf="@+id/signUp_password"-->
         <!--android:text="Login"-->
@@ -381,7 +380,7 @@
             android:layout_height="45dp"
             android:layout_alignParentLeft="true"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="35dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/btn_shape_facebook"
             android:drawableLeft="@drawable/ic_facebookappsymbol"
             android:drawablePadding="5dp"
@@ -401,7 +400,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="35dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/btn_shape_google"
             android:drawableLeft="@drawable/ic_googleappsymbol"
             android:drawablePadding="5dp"
@@ -415,23 +414,7 @@
             app:layout_constraintHorizontal_bias="0.944"
             app:layout_constraintStart_toEndOf="@+id/fb_button" />
 
-        <TextView
-            android:id="@+id/txt_Partner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_margin="5dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
-            android:text="*Want to join as InteriAR Partner?"
-            android:textColor="#460101"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="parent" />
+
 
         <!--<Switch
             android:id="@+id/switch1"
