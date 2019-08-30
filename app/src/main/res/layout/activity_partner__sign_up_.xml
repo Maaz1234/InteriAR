@@ -13,7 +13,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/belgrano"
         android:text="Become InteriAR Partner"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
@@ -28,7 +27,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/belgrano"
         android:text="Start selling furniture today"
 
         android:textColor="@color/colorPrimary"

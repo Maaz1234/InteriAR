@@ -71,7 +71,7 @@ public class Home_Activity extends AppCompatActivity {
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_assistant_black_24dp);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setElevation(0);
+//        actionBar.setElevation(0);
     }
 
    /* public static class MyPagerAdapter extends FragmentPagerAdapter
