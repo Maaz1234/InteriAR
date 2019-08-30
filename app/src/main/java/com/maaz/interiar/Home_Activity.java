@@ -15,8 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.widget.Switch;
-import android.widget.TableLayout;
+
 
 public class Home_Activity extends AppCompatActivity {
 
@@ -26,7 +25,9 @@ public class Home_Activity extends AppCompatActivity {
     private ViewPager viewPager;
     private PagerViewAdapter adapter;
 
+/*
     FragmentPagerAdapter adapterViewPager;
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,23 +38,23 @@ public class Home_Activity extends AppCompatActivity {
         bottomnav.setOnNavigationItemSelectedListener(navlistener);
         bottomnav.setSelectedItemId(R.id.nav_home); // setting home item as default selection
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new Homefragment()).commit();
+       /* getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new Homefragment()).commit();*/
 
-        viewPager = (ViewPager) findViewById(R.id.fragment_container_home);
+        /*viewPager = (ViewPager) findViewById(R.id.fragment_container_home);
 
-        adapterViewPager = new PagerViewAdapter (getSupportFragmentManager());
+        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapterViewPager);
-        viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(1);*/
 
 
         /*        SetupTabLayout(); */
 
-       /* tabLayout = (TabLayout) findViewById(R.id.tablayout_home);
+       tabLayout = (TabLayout) findViewById(R.id.tablayout_home);
         viewPager = (ViewPager) findViewById(R.id.fragment_container_home);
-*//*
-        adapter = new PagerViewAdapter(getActivity().getSupportFragmentManager());
-*//*
+
+//        adapter = new PagerViewAdapter(getActivity().getSupportFragmentManager());
+
         adapter = new PagerViewAdapter (getSupportFragmentManager());
 
         //Add fragment Here
@@ -67,13 +68,13 @@ public class Home_Activity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_photo_camera);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_interiar_logo_with_transparent_background_without_name_svg);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_assistant_black_24dp);*/
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_assistant_black_24dp);
 
-        /*ActionBar actionBar = getSupportActionBar();
-        actionBar.setElevation(0);*/
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setElevation(0);
     }
 
-    public static class MyPagerAdapter extends FragmentPagerAdapter
+   /* public static class MyPagerAdapter extends FragmentPagerAdapter
     {
 
         public MyPagerAdapter(FragmentManager fm) {
@@ -100,7 +101,7 @@ public class Home_Activity extends AppCompatActivity {
         {
             return 3;
         }
-    }
+    }*/
 
 
     /* Return the current tab number
@@ -172,13 +173,13 @@ public class Home_Activity extends AppCompatActivity {
                     break;
             }
 
-            if (selectedFragment != null)
+          /*  if (selectedFragment != null)
             {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         selectedFragment).commit();
-            }
-            /*getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    selectedFragment).commit();*/
+            }*/
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
 
             return true;
         }
@@ -223,26 +224,5 @@ public class Home_Activity extends AppCompatActivity {
                 break;
         }
         return false;
-    }*/
-
-
-
-  /*  *//*Responsible for adding the 3 tabs: Camera, Home, Assistant*//*
-    private void setupViewPager()
-    {
-        PagerViewAdapter adapter1 = new PagerViewAdapter(getSupportFragmentManager());
-        adapter1.AddFragment(new Camera_Fragment());//index 0
-        adapter1.AddFragment(new Homefragment());//index 1
-        adapter1.AddFragment(new Assistant_Fragment());//index 2
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(adapter1);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout_home);
-        tabLayout.setupWithViewPager(viewPager);
-
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_photo_camera);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_interiar_logo_with_transparent_background_without_name_svg);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_assistant_black_24dp);
-
     }*/
 }

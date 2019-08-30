@@ -23,30 +23,36 @@ public class Camfragment extends Fragment {
 
     }*/
 
-   /* @Nullable
-    @Override
+    /*@Nullable*/
+
+/*
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home,container,false);
+*/
+    @Override
+    public View onCreateView( LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_cam,container,false);
 
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         this.startActivityForResult(i, 1);
         return view;
-    }*/
+    }
 
-    public static Camfragment newInstance(){
+    public static Camfragment newInstance()
+    {
         Camfragment fragment = new Camfragment();
         return fragment;
     }
 
-    @Override
+   /* @Override
     public View onCreateView( LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cam,container,false);
-       /* Log.d(TAG, "onCreateView: started.");
+       *//* Log.d(TAG, "onCreateView: started.");
 
         if (((Home_Activity)getActivity()).getCurrentTabNumber() == 0)
-        Log.d(TAG, "onCreateView: launching camera");*/
-        
+        Log.d(TAG, "onCreateView: launching camera");*//*
+
         
         return view;
-    }
+    }*/
 }
