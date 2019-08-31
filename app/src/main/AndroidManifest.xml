@@ -4,6 +4,7 @@
     package="com.maaz.interiar">
 
     <dist:module dist:instant="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_interiar_launcher"
@@ -11,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.PartnerSignUpActivity"></activity>
+        <activity android:name=".ui.activities.CaptureImageActivity"></activity>
+        <activity android:name=".ui.activities.PartnerSignUpActivity" />
         <activity android:name=".ui.activities.PartnerSignInActivity" />
         <activity android:name=".ui.activities.HomeActivity" />
         <activity android:name=".ui.activities.SignIn_Activity" />
@@ -22,10 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!--<meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />-->
     </application>
 
 </manifest>
