@@ -84,7 +84,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if (currentUser != null || account != null)
+        if (currentUser != null)
         {
             loadingBar.setTitle("Already Logged in");
             loadingBar.setMessage("Please wait...");
@@ -173,7 +173,7 @@ public class SignIn_Activity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful())
                             {
-                                //AddUserToDatabase();
+                                AddUserToDatabase();
                                 Intent intent = new Intent(SignIn_Activity.this, Home_Activity.class);
                                 startActivity(intent);
                             }
