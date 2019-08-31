@@ -1,7 +1,7 @@
-package com.maaz.interiar;
+package com.maaz.interiar.ui.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.maaz.interiar.R;
 
 public class SignIn_Activity extends AppCompatActivity {
 
@@ -71,7 +73,7 @@ public class SignIn_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(SignIn_Activity.this,Home_Activity.class);
+                Intent intent = new Intent(SignIn_Activity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
             }

@@ -1,16 +1,14 @@
-package com.maaz.interiar;
+package com.maaz.interiar.ui.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
-public class Partner_SignIn_Activity extends AppCompatActivity {
+import com.maaz.interiar.R;
+
+public class PartnerSignInActivity extends AppCompatActivity {
 
 
     private Button partnerChangeToSignupActivity_btn;
@@ -18,7 +16,7 @@ public class Partner_SignIn_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_partner__sign_in_);
+        setContentView(R.layout.activity_partner_sign_in);
 
 
         partnerChangeToSignupActivity_btn = (Button) findViewById(R.id.partner_change_to_signup_button);
@@ -26,7 +24,7 @@ public class Partner_SignIn_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(Partner_SignIn_Activity.this,Partner_SignUp_Activity.class);
+                Intent intent = new Intent(PartnerSignInActivity.this, PartnerSignUpActivity.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +36,7 @@ public class Partner_SignIn_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(com.maaz.interiar.SignIn_Activity.this,Home_Activity.class);
+                Intent intent = new Intent(com.maaz.interiar.ui.activities.SignIn_Activity.this,HomeActivity.class);
                 startActivity(intent);
                 finish();
             }
