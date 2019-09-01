@@ -51,6 +51,18 @@
         app:menu="@menu/bottom_navigation"
           />
 
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_shape_facebook"
+        android:layout_marginBottom="200dp"
+        android:text="LOGOUT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/navi_bar"
+        />
+
 
 
    <!-- <android.support.design.widget.BottomNavigationView

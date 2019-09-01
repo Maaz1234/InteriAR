@@ -15,8 +15,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TableLayout;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Home_Activity extends AppCompatActivity {
 
@@ -25,6 +30,7 @@ public class Home_Activity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private PagerViewAdapter adapter;
+    private Button logoutButton;
 
     FragmentPagerAdapter adapterViewPager;
 
@@ -46,7 +52,17 @@ public class Home_Activity extends AppCompatActivity {
         viewPager.setAdapter(adapterViewPager);
         viewPager.setCurrentItem(1);
 
+        logoutButton = findViewById(R.id.logout_button);
 
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(Home_Activity.this, SignIn_Activity.class);
+                startActivity(intent);
+                Toast.makeText(Home_Activity.this, "Logged Out Successfully!", Toast.LENGTH_SHORT).show();
+            }
+        });
         /*        SetupTabLayout(); */
 
        /* tabLayout = (TabLayout) findViewById(R.id.tablayout_home);

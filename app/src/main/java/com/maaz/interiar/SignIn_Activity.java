@@ -296,6 +296,6 @@ public class SignIn_Activity extends AppCompatActivity {
         RootRef = FirebaseDatabase.getInstance().getReference();
 
         RootRef.child("Users").child(personId).child("email").setValue(personEmail);
-        RootRef.child("Users").child(personId).child("picture").setValue(personPhoto);
+        //RootRef.child("Users").child(personId).child("picture").setValue(personPhoto);
     }
 }
