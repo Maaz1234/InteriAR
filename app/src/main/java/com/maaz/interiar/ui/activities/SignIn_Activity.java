@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.IntentFilter;
 import android.graphics.Region;
+import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -53,6 +54,9 @@ public class SignIn_Activity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 9001;
+    private boolean checkGoogleOrFbSignIn;
+    String personId, personName, personEmail;
+    Uri personPhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,6 +163,7 @@ public class SignIn_Activity extends AppCompatActivity {
     {
         String email = signUpEmail.getText().toString();
         String password = signUpPassword.getText().toString();
+        final String name = signUpName.getText().toString();
 
         if(TextUtils.isEmpty(email))
         {
@@ -168,6 +173,11 @@ public class SignIn_Activity extends AppCompatActivity {
         else if (TextUtils.isEmpty(password))
         {
             Toast.makeText(this, "Please Enter Password", Toast.LENGTH_SHORT).show();
+            signUpPassword.requestFocus();
+        }
+        else if (TextUtils.isEmpty(name))
+        {
+            Toast.makeText(this, "Please Enter your full name", Toast.LENGTH_SHORT).show();
             signUpPassword.requestFocus();
         }
         else
@@ -183,6 +193,7 @@ public class SignIn_Activity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful())
                             {
+                                personName = name;
                                 AddUserToDatabase();
                                 Intent intent = new Intent(SignIn_Activity.this, HomeActivity.class);
                                 startActivity(intent);
@@ -261,6 +272,7 @@ public class SignIn_Activity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             if (account != null) {
+                checkGoogleOrFbSignIn = true;
                 AddUserToDatabase();
                 Intent intent = new Intent(SignIn_Activity.this, HomeActivity.class);
                 startActivity(intent);
@@ -273,14 +285,28 @@ public class SignIn_Activity extends AppCompatActivity {
 
     private void AddUserToDatabase()
     {
-        FirebaseUser User = mAuth.getCurrentUser();
-        String userID = User.getUid();
-        String email = User.getEmail();
+        if (checkGoogleOrFbSignIn = true)
+        {
+            GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(SignIn_Activity.this);
+            personName = acct.getDisplayName();
+            personEmail = acct.getEmail();
+            personId = acct.getId();
+            personPhoto = acct.getPhotoUrl();
+
+        }
+        else
+        {
+            FirebaseUser User = mAuth.getCurrentUser();
+            personEmail = User.getEmail();
+            personId = User.getUid();
+            personPhoto = null;
+        }
 
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
-        RootRef.child("Users").child(userID).child("email").setValue(email);
+        RootRef.child("Users").child(personId).child("email").setValue(personEmail);
+        //RootRef.child("Users").child(personId).child("picture").setValue(personPhoto);
     }
 }
 //push recheck
