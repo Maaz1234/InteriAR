@@ -25,3 +25,5 @@ public class CaptureImageActivity extends AppCompatActivity {
         imageViewCaptureImage.setImageURI(imageUri);
     }
 }
+
+
