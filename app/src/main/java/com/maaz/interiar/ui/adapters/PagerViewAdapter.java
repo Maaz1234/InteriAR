@@ -1,14 +1,9 @@
-package com.maaz.interiar;
+package com.maaz.interiar.ui.adapters;
 
 
-
-import android.content.Intent;
-import android.graphics.Camera;
-import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +14,15 @@ import java.util.List;
 
 public class PagerViewAdapter extends FragmentPagerAdapter {
 
+/*
     private static final String TAG = "PagerViewAdapter";
+*/
     private final List<Fragment> listFragments = new ArrayList<>();
-
 
     /*private final List<String> listTitles = new ArrayList<>();*/
 
-    public PagerViewAdapter(FragmentManager fm) {
+    public PagerViewAdapter(FragmentManager fm)
+    {
         super(fm);
     }
 
@@ -64,5 +61,6 @@ public class PagerViewAdapter extends FragmentPagerAdapter {
     {
         listFragments.add(fragment);
     }
+
 
 }

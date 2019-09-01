@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.PartnerSignInActivity">
+
+    <ImageView
+        android:id="@+id/background_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-111dp" />
+
+
+    <ImageView
+        android:id="@+id/imgView_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/interi_ar_logo_with_transparent_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.053" />
+
+    <TextView
+        android:id="@+id/tv_become_partner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="InteriAR Partner"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="185dp" />
+
+    <!--<TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/belgrano"
+        android:text="Start selling furniture today"
+
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_become_partner" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/txt"-->
+    <!--style="@style/TextAppearance.AppCompat.Headline"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/imgView_logo"-->
+    <!--android:layout_marginTop="5dp"-->
+    <!--android:fontFamily="@font/andada"-->
+    <!--android:paddingLeft="40dp"-->
+    <!--android:text="Login"-->
+    <!--android:textColor="#400000"-->
+    <!--android:textSize="34dp"-->
+    <!--android:textStyle="bold"-->
+    <!--/>-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/app_name"-->
+
+
+    <EditText
+        android:id="@+id/signIn_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:alpha="0.7"
+        android:autofillHints="string/prompt_email"
+        android:background="@drawable/input_shape"
+        android:drawableLeft="@drawable/ic_email_black_24dp"
+        android:drawablePadding="15dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_become_partner" />
+    <!--android:layout_marginTop="20dp"-->
+    <!--app:layout_constraintHorizontal_bias="1.0"-->
+    <!--android:layout_below="@+id/txt"-->
+
+    <EditText
+
+        android:id="@+id/signIn_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:alpha="0.7"
+        android:background="@drawable/input_shape"
+        android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+        android:drawableRight="@drawable/ic_remove_red_eye_black_24dp"
+        android:drawablePadding="15dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signIn_email"
+        />
+    <!--android:layout_below="@+id/signIn_email"-->
+
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:padding="3dp"
+        android:text="Forget Password"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signIn_password" />
+    <!--android:layout_centerHorizontal="true"-->
+
+
+    <Button
+        android:id="@+id/partner_login_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/forget_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="45dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/btn_shape"
+        android:drawableBottom="@drawable/ic_arrow_forward_black_24dp"
+        android:paddingBottom="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/divider_txt"
+        />
+    <!--app:layout_constraintTop_toBottomOf="@+id/signUp_password"-->
+    <!--android:text="Login"-->
+
+
+    <TextView
+        android:id="@+id/divider_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Doesn't have an account"
+        android:textColor="#460101"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/partner_change_to_signup_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <!--app:layout_constraintTop_toBottomOf="@+id/login_btn"-->
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toRightOf="@id/divider_txt"
+        android:background="#460101"
+        app:layout_constraintBottom_toTopOf="@+id/partner_change_to_signup_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/divider_txt" />
+    <!--app:layout_constraintHorizontal_bias="1.0"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/login_btn"-->
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toLeftOf="@id/divider_txt"
+        android:background="#460101"
+        app:layout_constraintBottom_toTopOf="@+id/partner_change_to_signup_button"
+        app:layout_constraintEnd_toStartOf="@+id/divider_txt"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+    <!--app:layout_constraintHorizontal_bias="0.0"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/login_btn"-->
+
+
+
+    <Button
+        android:id="@+id/partner_change_to_signup_button"
+        android:layout_width="148dp"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/btn_shape"
+        android:text="Sign up"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

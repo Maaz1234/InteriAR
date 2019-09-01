@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context="com.maaz.interiar.ui.fragments.CameraFragment">
+
+    <com.otaliastudios.cameraview.CameraView
+        android:id="@+id/cameraView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000"
+        android:keepScreenOn="true"
+        app:cameraAudio="off"
+        app:cameraFilter="@string/cameraview_filter_none"
+        app:cameraHdr="on"
+        app:cameraMode="picture" />
+
+    <Button
+        android:id="@+id/buttonCapture"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/image_capture_circle_button" />
+
+</FrameLayout>
