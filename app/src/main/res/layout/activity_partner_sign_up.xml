@@ -7,10 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.PartnerSignUpActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tv_become_partner"
@@ -43,21 +42,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_become_partner" />
 
-    <TextView
-        android:id="@+id/tv_profile_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Profile Information"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_start_selling" />
+
+       <!--PROFILE INFORMATION-->
+        <TextView
+            android:id="@+id/tv_profile_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Profile Information"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_start_selling" />
 
         <EditText
             android:id="@+id/partner_signup_first_name"
@@ -79,11 +80,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="8dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="First Name"
             android:hint="Last Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.043"
@@ -132,14 +132,13 @@
             app:layout_constraintTop_toBottomOf="@+id/partner_signup_partnerID" />
 
 
-
-
+       <!--ORGANIZATION INFORMATION-->
         <TextView
             android:id="@+id/tv_org_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="Organization Information"
             android:textColor="@android:color/black"
@@ -159,7 +158,6 @@
             android:layout_marginEnd="8dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Last Name"
             android:hint="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.043"
@@ -220,8 +218,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/partner_signup_city" />
 
+       <EditText
+           android:id="@+id/partner_business_description"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_marginStart="8dp"
+           android:layout_marginEnd="8dp"
+           android:ems="10"
+           android:gravity="start|top"
+           android:hint="Type Business Description Here"
+           android:inputType="textMultiLine"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/partner_signup_phone_number" />
+
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/checkBox_accept_terms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -229,10 +241,10 @@
             android:text="I hereby confirm that I am fully legally competent and accept the terms and conditions."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/partner_signup_phone_number" />
+            app:layout_constraintTop_toBottomOf="@+id/partner_business_description" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="314dp"
@@ -243,7 +255,10 @@
             android:background="@drawable/btn_shape"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+            app:layout_constraintTop_toBottomOf="@+id/checkBox_accept_terms" />
 
-    </RelativeLayout>
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

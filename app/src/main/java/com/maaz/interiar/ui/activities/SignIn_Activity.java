@@ -46,7 +46,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
     private RadioGroup radioGroup;
     private RadioButton radioSigninBtn, radioSignupBtn;
-    private TextView forgetPassword, divider_text;
+    private TextView forgetPassword, divider_text, become_partner_text;
     private EditText signInEmail, signInPassword, signUpName, signUpEmail, signUpPassword;
     private Button loginButton, googleButton, facebookButton;
     private ProgressDialog loadingBar;
@@ -78,6 +78,8 @@ public class SignIn_Activity extends AppCompatActivity {
         facebookButton = findViewById(R.id.fb_button);
         loadingBar = new ProgressDialog(this);
         //Paper.init(this);
+        become_partner_text = (TextView) findViewById(R.id.txt_Partner);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -147,14 +149,23 @@ public class SignIn_Activity extends AppCompatActivity {
                 {
                     SignUpUser();
                 }
-
             }
         });
 
-        googleButton.setOnClickListener(new View.OnClickListener() {
+        googleButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 SignInWithGoogle();
+            }
+        });
+
+        become_partner_text.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SignIn_Activity.this, PartnerSignInActivity.class);
+                startActivity(i);
             }
         });
     }
