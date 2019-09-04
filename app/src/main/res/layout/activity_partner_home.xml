@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+
+    <include
+        layout="@layout/app_bar_partner_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+    <!--<com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_partner_home"
+        app:menu="@menu/activity_partner_home_drawer"/>-->
+    <!--app:itemTextColor="@android:color/darker_gray"
+    app:itemIconTint="@android:color/darker_gray"-->
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_partner_home"
+        app:menu="@menu/activity_partner_home_drawer">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:clickable="true"
+            >
+            <!--android:padding="16dp"-->
+
+          <!--  <Button
+                android:id="@+id/nav_about_interiar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="About interiAR"
+                android:textAllCaps="false"
+                android:outlineAmbientShadowColor="@android:color/holo_green_dark"
+                android:outlineSpotShadowColor="@android:color/darker_gray"
+                android:textColor="@android:color/darker_gray"
+                android:background="@android:color/white"
+                />-->
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                />
+
+            <TextView
+                android:id="@+id/nav_about_interiar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="About InteriAR" />
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

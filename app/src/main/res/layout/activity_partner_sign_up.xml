@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.PartnerSignUpActivity">
+    tools:context=".ui.Partner.PartnerSignUpActivity">
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
@@ -73,7 +73,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.043"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_profile_info" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile_info"
+            />
 
         <EditText
             android:id="@+id/partner_signup_last_name"
@@ -129,7 +130,9 @@
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/partner_signup_partnerID" />
+            app:layout_constraintTop_toBottomOf="@+id/partner_signup_partnerID"
+
+            />
 
 
        <!--ORGANIZATION INFORMATION-->
@@ -218,10 +221,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/partner_signup_city" />
 
-       <EditText
+       <!--<EditText
            android:id="@+id/partner_business_description"
            android:layout_width="match_parent"
-           android:layout_height="match_parent"
+           android:layout_height="138dp"
            android:layout_marginStart="8dp"
            android:layout_marginEnd="8dp"
            android:ems="10"
@@ -231,31 +234,64 @@
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/partner_signup_phone_number" />
+-->
 
-        <CheckBox
-            android:id="@+id/checkBox_accept_terms"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="I hereby confirm that I am fully legally competent and accept the terms and conditions."
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/partner_business_description" />
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/partner_business_description"
 
-        <Button
-            android:id="@+id/button_submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="314dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:text="Submit"
-            android:textColor="@android:color/white"
-            android:background="@drawable/btn_shape"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox_accept_terms" />
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           tools:layout_editor_absoluteX="280dp"
+           tools:layout_editor_absoluteY="558dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/partner_signup_phone_number"
+           android:layout_marginStart="8dp"
+           android:layout_marginEnd="8dp"
+           app:helperText="Optional"
+           app:helperTextEnabled="true"
+           app:counterEnabled="true"
+           app:counterMaxLength="5"
+           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+           >
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:hint="Business Description" />
+       </com.google.android.material.textfield.TextInputLayout>
+
+
+       <CheckBox
+           android:id="@+id/checkBox_accept_terms"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="8dp"
+           android:layout_marginEnd="8dp"
+           android:text="I hereby confirm that I am fully legally competent and accept the terms and conditions."
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="1.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/partner_business_description" />
+
+       <Button
+           android:id="@+id/button_submit"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="8dp"
+           android:layout_marginTop="16dp"
+           android:layout_marginEnd="8dp"
+           android:layout_marginBottom="8dp"
+           android:background="@drawable/btn_shape"
+           android:text="Submit"
+           android:textColor="@android:color/white"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.934"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/checkBox_accept_terms"
+           app:layout_constraintVertical_bias="1.0" />
+
 
 
 

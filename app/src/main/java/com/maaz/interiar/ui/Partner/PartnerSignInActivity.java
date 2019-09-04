@@ -1,4 +1,4 @@
-package com.maaz.interiar.ui.activities;
+package com.maaz.interiar.ui.Partner;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,7 @@ import com.maaz.interiar.R;
 public class PartnerSignInActivity extends AppCompatActivity {
 
 
-    private Button partnerChangeToSignupActivity_btn;
+    private Button partnerChangeToSignupActivity_btn, partnerLoginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,16 @@ public class PartnerSignInActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent = new Intent(PartnerSignInActivity.this, PartnerSignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        partnerLoginBtn = (Button) findViewById(R.id.partner_login_btn);
+        partnerLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(PartnerSignInActivity.this, PartnerHomeActivity.class);
                 startActivity(intent);
             }
         });

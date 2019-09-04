@@ -1,7 +1,11 @@
 package com.maaz.interiar.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -10,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.maaz.interiar.R;
 import com.maaz.interiar.ui.adapters.PagerViewAdapter;
 import com.maaz.interiar.ui.fragments.CameraFragment;
@@ -21,11 +26,26 @@ import com.maaz.interiar.ui.fragments.Profilefragment;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private Button logoutBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        logoutBtn = (Button) findViewById(R.id.logout_button);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent i = new Intent(HomeActivity.this, SignIn_Activity.class);
+                startActivity(i);
+                Toast.makeText(HomeActivity.this, "Logged Out Successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        /*
         BottomNavigationView bottomNavigationView = findViewById(R.id.navi_bar);
         ViewPager viewPagerMain = findViewById(R.id.viewPagerMain);
 
@@ -76,6 +96,7 @@ public class HomeActivity extends AppCompatActivity {
         transaction.replace(R.id.frame_layout_home, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
-    }
+    }*/
 
+    }
 }
