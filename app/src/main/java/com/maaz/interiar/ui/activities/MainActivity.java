@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+                Intent intent=new Intent(MainActivity.this,SignIn_Activity.class);
                 startActivity(intent);
                 finish();
             }
