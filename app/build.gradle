@@ -56,6 +56,9 @@ dependencies {
     //DashBoard
     implementation 'androidx.cardview:cardview:1.0.0'
 
+    //GridLayout
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

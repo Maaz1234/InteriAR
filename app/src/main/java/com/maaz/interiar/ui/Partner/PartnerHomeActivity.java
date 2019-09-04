@@ -128,7 +128,8 @@ public class PartnerHomeActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(PartnerHomeActivity.this, "Add new product Pressed", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(PartnerHomeActivity.this, AddNewProductByCategoryActivity.class);
+                startActivity(i);
             }
         });
 

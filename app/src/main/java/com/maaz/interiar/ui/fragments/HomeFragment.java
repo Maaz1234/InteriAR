@@ -55,8 +55,8 @@ public class HomeFragment extends Fragment {
         sliderModelList.add(new SliderModel(R.mipmap.ic_interiar_launcher,"#FFFFFF"));
 
         sliderModelList.add(new SliderModel(R.mipmap.ic_interiar_launcher_round,"#FFFFFF"));
-        sliderModelList.add(new SliderModel(R.drawable.banner_example1,"#FFFFFF"));
-        sliderModelList.add(new SliderModel(R.drawable.banner_example2,"#FFFFFF"));
+        /*sliderModelList.add(new SliderModel(R.drawable.banner_example1,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.drawable.banner_example2,"#FFFFFF"));*/
         sliderModelList.add(new SliderModel(R.mipmap.ic_launcher_foreground,"#FFFFFF"));
 
         sliderModelList.add(new SliderModel(R.mipmap.ic_launcher_round,"#FFFFFF"));

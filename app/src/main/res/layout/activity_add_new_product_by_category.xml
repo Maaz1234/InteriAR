@@ -6,4 +6,558 @@
     android:layout_height="match_parent"
     tools:context=".ui.Partner.AddNewProductByCategoryActivity">
 
+    <include layout="@layout/toolbar_layout"
+        android:id="@+id/toolbar1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="Shop By Category"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar1"
+        app:layout_constraintVertical_bias="0.039" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#EEEEEE"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="center">
+                <!--android:orienation="vertical"-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_kitchen"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/kitchen" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_kitchen"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Kitchen and Dining"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp" />
+
+                    <Button
+                        android:id="@+id/btn_kitchen"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="center">
+                <!--android:orienation="vertical"-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_bath"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/bath" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_bath"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Bath Products"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp" />
+
+                    <Button
+                        android:id="@+id/btn_bath"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+                <!--android:orienation="vertical"-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_bedroom"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/bedroom" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_bedroom"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Bedroom Products"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp" />
+
+                    <Button
+                        android:id="@+id/btn_bedroom"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="center">
+                <!--android:orienation="vertical"-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_living_products"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/living" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_living_products"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Living Products"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp" />
+
+                    <Button
+                        android:id="@+id/btn_living_products"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="center">
+                <!--android:orienation="vertical"-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_lighting"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ligthing" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_lighting"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Lighting"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp" />
+
+                    <Button
+                        android:id="@+id/btn_lighting"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+                <!--android:orienation="vertical"-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_furniture"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/furniture" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_furniture"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Furniture"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp" />
+
+                    <Button
+                        android:id="@+id/btn_furniture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="center">
+                <!--android:orienation="vertical"-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_home_decor"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/home_decor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_home_decor"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Home decor"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp" />
+
+                    <Button
+                        android:id="@+id/btn_home_decor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="center">
+                <!--android:orienation="vertical"-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_outdoor"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/outdoor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_outdoor"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Outdoor"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp" />
+
+                    <Button
+                        android:id="@+id/btn_outdoor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+                <!--android:orienation="vertical"-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_storage"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/storage" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_storage"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Storage"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp" />
+
+                    <Button
+                        android:id="@+id/btn_storage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+   <!-- <androidx.gridlayout.widget.GridLayout
+        android:layout_width="395dp"
+        android:layout_height="587dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:layout_column="0"
+            app:layout_row="0"
+            android:drawableTop="@drawable/kitchen"
+            />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:layout_column="1"
+            app:layout_row="0"
+            android:drawableTop="@drawable/bath"
+            />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:layout_column="2"
+            app:layout_row="0"
+            android:drawableTop="@drawable/bedroom"
+            />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:layout_column="0"
+            app:layout_row="1"
+            android:drawableTop="@drawable/living"
+            />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:layout_column="1"
+            app:layout_row="1"
+            android:drawableTop="@drawable/ligthing"
+            />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:layout_column="2"
+            app:layout_row="1"
+            android:drawableTop="@drawable/furniture"
+            />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:layout_column="0"
+            app:layout_row="2"
+            android:drawableTop="@drawable/home_decor"
+            />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:layout_column="1"
+            app:layout_row="2"
+            android:drawableTop="@drawable/outdoor"
+            />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:layout_column="2"
+            app:layout_row="2"
+            android:drawableTop="@drawable/storage"
+            />
+
+    </androidx.gridlayout.widget.GridLayout>-->
+
+    <!-- <GridView
+         android:id="@+id/gridview_Category"
+         android:layout_width="395dp"
+         android:layout_height="587dp"
+         android:numColumns="3"
+         android:columnWidth="100dp"
+         android:horizontalSpacing="5dp"
+         android:verticalSpacing="5dp"
+         android:stretchMode="spacingWidthUniform"
+
+         android:layout_marginStart="8dp"
+         android:layout_marginTop="8dp"
+         android:layout_marginEnd="8dp"
+         android:layout_marginBottom="8dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
