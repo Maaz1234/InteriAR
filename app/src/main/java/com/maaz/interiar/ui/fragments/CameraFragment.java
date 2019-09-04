@@ -14,6 +14,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.maaz.interiar.R;
 import com.maaz.interiar.ui.activities.CaptureImageActivity;
 import com.maaz.interiar.utils.Constant;
@@ -27,6 +28,7 @@ public class CameraFragment extends BaseFragment implements View.OnClickListener
 
     private CameraView cameraView;
     private Button buttonCapture;
+    //private BottomNavigationView bottomNavigationView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,10 +39,11 @@ public class CameraFragment extends BaseFragment implements View.OnClickListener
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initialize(view);
+        //bottomNavigationView = view.findViewById(R.id.navi_bar);
+        //bottomNavigationView.setVisibility(View.INVISIBLE);
     }
 
     private void initialize(final View view) {
-
         buttonCapture = view.findViewById(R.id.buttonCapture);
 
         cameraView = view.findViewById(R.id.cameraView);

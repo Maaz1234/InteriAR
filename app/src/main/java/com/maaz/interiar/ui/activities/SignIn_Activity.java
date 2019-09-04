@@ -86,7 +86,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if (currentUser != null)
+        if (currentUser != null || account != null)
         {
             loadingBar.setTitle("Already Logged in");
             loadingBar.setMessage("Please wait...");
