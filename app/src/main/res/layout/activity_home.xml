@@ -30,6 +30,36 @@
         app:menu="@menu/bottom_navigation">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
+<!--    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayoutHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/appBarLayoutHome"
+            android:background="?android:attr/windowBackground"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+&lt;!&ndash;            <SearchView&ndash;&gt;
+&lt;!&ndash;                android:id="@+id/searchView"&ndash;&gt;
+&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;
+&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;
+&lt;!&ndash;                android:iconifiedByDefault="false"&ndash;&gt;
+&lt;!&ndash;                android:orientation="horizontal"&ndash;&gt;
+&lt;!&ndash;                android:queryHint="Search interiAR" />&ndash;&gt;
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>-->
+
 
 
 

@@ -2,6 +2,8 @@ package com.maaz.interiar.ui.activities;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.maaz.interiar.R;
 import com.maaz.interiar.ui.adapters.PagerViewAdapter;
@@ -25,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
     Fragment currentFragment;
     ViewPager viewPagerMain;
     PagerViewAdapter mainPagerAdapter;
+//    AppBarLayout appBarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class HomeActivity extends AppCompatActivity {
         //currentFragment = new HomeFragment();
 
         final BottomNavigationView bottomNavigationView = findViewById(R.id.navi_bar);
+
+//        appBarLayout = findViewById(R.id.appBarLayoutHome);
 
         viewPagerMain = findViewById(R.id.viewPagerMain);
 
@@ -45,6 +51,32 @@ public class HomeActivity extends AppCompatActivity {
 
         viewPagerMain.setAdapter(mainPagerAdapter);
         viewPagerMain.setCurrentItem(1);
+
+        viewPagerMain.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0 || position == 2)
+                {
+                    bottomNavigationView.setVisibility(View.INVISIBLE);
+                    //appBarLayout.setVisibility(View.INVISIBLE);
+                }
+                else if (position == 1)
+                {
+                    bottomNavigationView.setVisibility(View.VISIBLE);
+                    //appBarLayout.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         currentFragment = new HomeFragment();
         loadFragment(new HomeFragment());
@@ -85,6 +117,19 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+//        SearchView searchView = findViewById(R.id.searchView);
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
     }
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

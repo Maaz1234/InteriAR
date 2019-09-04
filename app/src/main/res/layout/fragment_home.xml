@@ -1,39 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayoutHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_scrollFlags="scroll|enterAlways">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/appBarLayoutHome"
-            android:background="?android:attr/windowBackground"
-            app:layout_scrollFlags="scroll|enterAlways">
-
-            <SearchView
-                android:id="@+id/searchView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:iconifiedByDefault="false"
-                android:orientation="horizontal"
-                android:queryHint="Search interiAR" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
 
 <!--
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -49,4 +20,17 @@
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintVertical_bias="1.0"
     app:menu="@menu/bottom_navigation" /> -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <include layout="@layout/sliding_ad_layout"/>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

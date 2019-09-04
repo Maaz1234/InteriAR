@@ -1,9 +1,12 @@
 package com.maaz.interiar.ui.adapters;
 
 
+import android.icu.util.LocaleData;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +20,7 @@ public class PagerViewAdapter extends FragmentPagerAdapter {
 /*
     private static final String TAG = "PagerViewAdapter";
 */
+    private PagerViewAdapter viewAdapter;
     private final List<Fragment> listFragments = new ArrayList<>();
 
     /*private final List<String> listTitles = new ArrayList<>();*/
@@ -39,6 +43,8 @@ public class PagerViewAdapter extends FragmentPagerAdapter {
 
         return listFragments.size();
     }
+
+
 
     //Adding fragment with title
 

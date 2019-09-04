@@ -15,7 +15,7 @@
         <activity android:name=".ui.activities.CaptureImageActivity"></activity>
         <activity android:name=".ui.activities.PartnerSignUpActivity" />
         <activity android:name=".ui.activities.PartnerSignInActivity" />
-        <activity android:name=".ui.activities.HomeActivity" />
+        <activity android:name=".ui.activities.HomeActivity"/>
         <activity android:name=".ui.activities.SignIn_Activity" />
         <activity android:name=".ui.activities.MainActivity">
             <intent-filter>
