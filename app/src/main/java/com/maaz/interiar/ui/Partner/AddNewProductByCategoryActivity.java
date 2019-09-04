@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,7 +54,7 @@ public class AddNewProductByCategoryActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Settings");
+        getSupportActionBar().setTitle("Categories");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -73,6 +74,8 @@ public class AddNewProductByCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                Intent i = new Intent(AddNewProductByCategoryActivity.this, AddNewProductActivity.class);
+                startActivity(i);
                 Toast.makeText(AddNewProductByCategoryActivity.this, "Kitchen Pressed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -81,6 +84,8 @@ public class AddNewProductByCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                Intent i = new Intent(AddNewProductByCategoryActivity.this, AddNewProductActivity.class);
+                startActivity(i);
                 Toast.makeText(AddNewProductByCategoryActivity.this, "Bath Pressed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -89,6 +94,8 @@ public class AddNewProductByCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                Intent i = new Intent(AddNewProductByCategoryActivity.this, AddNewProductActivity.class);
+                startActivity(i);
                 Toast.makeText(AddNewProductByCategoryActivity.this, "Bedroom Pressed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -97,6 +104,8 @@ public class AddNewProductByCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                Intent i = new Intent(AddNewProductByCategoryActivity.this, AddNewProductActivity.class);
+                startActivity(i);
                 Toast.makeText(AddNewProductByCategoryActivity.this, "Living Pressed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -105,6 +114,8 @@ public class AddNewProductByCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                Intent i = new Intent(AddNewProductByCategoryActivity.this, AddNewProductActivity.class);
+                startActivity(i);
                 Toast.makeText(AddNewProductByCategoryActivity.this, "Lighting Pressed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -113,6 +124,8 @@ public class AddNewProductByCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                Intent i = new Intent(AddNewProductByCategoryActivity.this, AddNewProductActivity.class);
+                startActivity(i);
                 Toast.makeText(AddNewProductByCategoryActivity.this, "Furniture Pressed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -121,6 +134,8 @@ public class AddNewProductByCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                Intent i = new Intent(AddNewProductByCategoryActivity.this, AddNewProductActivity.class);
+                startActivity(i);
                 Toast.makeText(AddNewProductByCategoryActivity.this, "Home Decor Pressed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -129,6 +144,8 @@ public class AddNewProductByCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                Intent i = new Intent(AddNewProductByCategoryActivity.this, AddNewProductActivity.class);
+                startActivity(i);
                 Toast.makeText(AddNewProductByCategoryActivity.this, "Outdoor Pressed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -137,10 +154,11 @@ public class AddNewProductByCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                Intent i = new Intent(AddNewProductByCategoryActivity.this, AddNewProductActivity.class);
+                startActivity(i);
                 Toast.makeText(AddNewProductByCategoryActivity.this, "storage Pressed", Toast.LENGTH_SHORT).show();
             }
         });
-
 
     }
 
