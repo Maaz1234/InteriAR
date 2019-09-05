@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.Partner.AddNewProductByCategoryActivity"></activity>
+        <activity android:name=".ui.Partner.AddNewProductActivity"></activity>
+        <activity android:name=".ui.Partner.AddNewProductByCategoryActivity" />
         <activity
             android:name=".ui.PartnerDrawer.SettingsActivity"
             android:screenOrientation="locked" />
