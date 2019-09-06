@@ -224,6 +224,7 @@ public class HomeActivity extends AppCompatActivity {
 
         /////////Banner Slider
 
+
     }
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

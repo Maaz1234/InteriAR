@@ -31,6 +31,7 @@ public class HomeFragment extends Fragment {
 
     }
 
+
 //    ///////////// Banner Slider
 //    private ViewPager bannerSliderViewPager;
 //    private List<SliderModel> sliderModelList;
