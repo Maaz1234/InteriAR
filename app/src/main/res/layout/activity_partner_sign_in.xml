@@ -86,7 +86,7 @@
 
 
     <EditText
-        android:id="@+id/signIn_email"
+        android:id="@+id/partner_signIn_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -117,7 +117,7 @@
 
     <EditText
 
-        android:id="@+id/signIn_password"
+        android:id="@+id/partner_signIn_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -144,7 +144,7 @@
     <!--android:layout_below="@+id/signIn_email"-->
 
     <TextView
-        android:id="@+id/forget_password"
+        android:id="@+id/partner_forget_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -166,7 +166,7 @@
         android:id="@+id/partner_login_btn"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_below="@id/forget_password"
+        android:layout_below="@id/partner_forget_password"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="45dp"

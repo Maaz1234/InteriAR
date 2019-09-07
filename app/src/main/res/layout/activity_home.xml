@@ -16,6 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navi_bar"
         android:layout_width="match_parent"
@@ -30,7 +31,7 @@
         app:menu="@menu/bottom_navigation">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-<!--    <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayoutHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,18 +49,28 @@
             android:background="?android:attr/windowBackground"
             app:layout_scrollFlags="scroll|enterAlways">
 
-&lt;!&ndash;            <SearchView&ndash;&gt;
-&lt;!&ndash;                android:id="@+id/searchView"&ndash;&gt;
-&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;
-&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;
-&lt;!&ndash;                android:iconifiedByDefault="false"&ndash;&gt;
-&lt;!&ndash;                android:orientation="horizontal"&ndash;&gt;
-&lt;!&ndash;                android:queryHint="Search interiAR" />&ndash;&gt;
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:iconifiedByDefault="false"
+                android:orientation="horizontal"
+                android:queryHint="Search interiAR" />
 
         </androidx.appcompat.widget.Toolbar>
 
-    </com.google.android.material.appbar.AppBarLayout>-->
+    </com.google.android.material.appbar.AppBarLayout>
 
+    <FrameLayout
+        android:id="@+id/home_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayoutHome"
+        >
+        <include layout="@layout/sliding_ad_layout"/>
+    </FrameLayout>
 
 
 

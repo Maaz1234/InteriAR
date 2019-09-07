@@ -1,7 +1,9 @@
 package com.maaz.interiar.ui.activities;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.SearchView;
 
@@ -14,7 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.maaz.interiar.R;
+import com.maaz.interiar.ui.Models.SliderModel;
 import com.maaz.interiar.ui.adapters.PagerViewAdapter;
+import com.maaz.interiar.ui.adapters.SliderAdapter;
 import com.maaz.interiar.ui.fragments.BrandsFragment;
 import com.maaz.interiar.ui.fragments.CameraFragment;
 import com.maaz.interiar.ui.fragments.CartFragment;
@@ -22,14 +26,26 @@ import com.maaz.interiar.ui.fragments.HomeFragment;
 import com.maaz.interiar.ui.fragments.Photofragment;
 import com.maaz.interiar.ui.fragments.Profilefragment;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class HomeActivity extends AppCompatActivity {
 
     Fragment currentFragment;
     ViewPager viewPagerMain;
     PagerViewAdapter mainPagerAdapter;
-//    AppBarLayout appBarLayout;
-
+    AppBarLayout appBarLayout;
+    ///////////// Banner Slider
+    private ViewPager bannerSliderViewPager;
+    private List<SliderModel> sliderModelList;
+    private int currentPage = 2;
+    private Timer timer;
+    final private long DELAY_TIME = 3000;
+    final private long PERIOD_TIME = 3000;
+    //////////// Banner Slider
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
 
         final BottomNavigationView bottomNavigationView = findViewById(R.id.navi_bar);
 
-//        appBarLayout = findViewById(R.id.appBarLayoutHome);
+        appBarLayout = findViewById(R.id.appBarLayoutHome);
 
         viewPagerMain = findViewById(R.id.viewPagerMain);
 
@@ -63,12 +79,14 @@ public class HomeActivity extends AppCompatActivity {
                 if (position == 0 || position == 2)
                 {
                     bottomNavigationView.setVisibility(View.INVISIBLE);
-                    //appBarLayout.setVisibility(View.INVISIBLE);
+                    appBarLayout.setVisibility(View.INVISIBLE);
+                    bannerSliderViewPager.setVisibility(View.INVISIBLE);
                 }
                 else if (position == 1)
                 {
                     bottomNavigationView.setVisibility(View.VISIBLE);
-                    //appBarLayout.setVisibility(View.VISIBLE);
+                    appBarLayout.setVisibility(View.VISIBLE);
+                    bannerSliderViewPager.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -89,26 +107,36 @@ public class HomeActivity extends AppCompatActivity {
                 currentFragment = null;
                 switch (menuItem.getItemId()) {
                     case R.id.nav_home:
+                        appBarLayout.setVisibility(View.VISIBLE);
+                        bannerSliderViewPager.setVisibility(View.VISIBLE);
                         fragment = new HomeFragment();
                         bottomNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
                         loadFragment(fragment);
                         break;
                     case R.id.nav_cart:
+                        bannerSliderViewPager.setVisibility(View.INVISIBLE);
+                        appBarLayout.setVisibility(View.INVISIBLE);
                         fragment = new CartFragment();
                         bottomNavigationView.getMenu().findItem(R.id.nav_cart).setChecked(true);
                         loadFragment(fragment);
                         break;
                     case R.id.nav_photo:
+                        bannerSliderViewPager.setVisibility(View.INVISIBLE);
+                        appBarLayout.setVisibility(View.INVISIBLE);
                         fragment = new Photofragment();
                         bottomNavigationView.getMenu().findItem(R.id.nav_photo).setChecked(true);
                         loadFragment(fragment);
                         break;
                     case R.id.nav_profile:
+                        bannerSliderViewPager.setVisibility(View.INVISIBLE);
+                        appBarLayout.setVisibility(View.INVISIBLE);
                         fragment = new Profilefragment();
                         bottomNavigationView.getMenu().findItem(R.id.nav_profile).setChecked(true);
                         loadFragment(fragment);
                         break;
                     case R.id.nav_cam:
+                        bannerSliderViewPager.setVisibility(View.INVISIBLE);
+                        appBarLayout.setVisibility(View.INVISIBLE);
                         fragment = new BrandsFragment();
                         bottomNavigationView.getMenu().findItem(R.id.nav_cam).setChecked(true);
                         loadFragment(fragment);
@@ -118,18 +146,85 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-//        SearchView searchView = findViewById(R.id.searchView);
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                return false;
-//            }
-//        });
+        SearchView searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        /////////Banner Slider
+
+        bannerSliderViewPager = findViewById(R.id.banner_slider_view_pager);
+
+        sliderModelList = new ArrayList<SliderModel>();
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher_foreground,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher_round,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_interiar_launcher,"#FFFFFF"));
+
+        sliderModelList.add(new SliderModel(R.mipmap.ic_interiar_launcher_round,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher_background,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher_foreground,"#FFFFFF"));
+
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher_round,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_interiar_launcher,"#FFFFFF"));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_interiar_launcher_round,"#FFFFFF"));
+
+
+        SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
+        bannerSliderViewPager.setAdapter(sliderAdapter);
+        bannerSliderViewPager.setClipToPadding(false);
+        bannerSliderViewPager.setPageMargin(20);
+
+        bannerSliderViewPager.setCurrentItem(currentPage);
+
+        ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                currentPage = position;
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                if( state == ViewPager.SCROLL_STATE_IDLE)
+                {
+                    pageLooper();
+                }
+
+            }
+        };
+        bannerSliderViewPager.addOnPageChangeListener(onPageChangeListener);
+
+        startBannerSlideShow();
+
+        bannerSliderViewPager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                pageLooper();
+                stopBannerSlideShow();
+                if(motionEvent.getAction() == MotionEvent.ACTION_UP)
+                {
+                    startBannerSlideShow();
+                }
+                return false;
+            }
+        });
+
+        /////////Banner Slider
+
+
     }
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -137,5 +232,50 @@ public class HomeActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+    /////////Banner Slider
+
+    private void pageLooper()
+    {
+        if (currentPage == sliderModelList.size() -2)
+        {
+            currentPage = 2;
+            bannerSliderViewPager.setCurrentItem(currentPage, false);
+        }
+        if (currentPage == 1)
+        {
+            currentPage = sliderModelList.size() - 3;
+            bannerSliderViewPager.setCurrentItem(currentPage, false);
+        }
+    }
+
+    private void startBannerSlideShow()
+    {
+        final Handler handler = new Handler();
+        final Runnable update = new Runnable() {
+            @Override
+            public void run() {
+                if (currentPage >= sliderModelList.size())
+                {
+                    currentPage = 1;
+                }
+                bannerSliderViewPager.setCurrentItem(currentPage++,true);
+            }
+        };
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(update);
+            }
+        },DELAY_TIME,PERIOD_TIME);
+    }
+
+    private void stopBannerSlideShow()
+    {
+        timer.cancel();
+    }
+
+    /////////Banner Slider
 
 }

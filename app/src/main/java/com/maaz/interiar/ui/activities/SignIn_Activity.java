@@ -49,6 +49,7 @@ public class SignIn_Activity extends AppCompatActivity {
     private boolean checkGoogleOrFbSignIn;
     String personId, personName, personEmail;
     Uri personPhoto;
+    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,8 +157,13 @@ public class SignIn_Activity extends AppCompatActivity {
         {
             @Override
             public void onClick(View view) {
+                loadingBar.setTitle("Creating Account");
+                loadingBar.setMessage("Please wait. While we are checking credentials");
+                loadingBar.setCanceledOnTouchOutside(false);
+                loadingBar.show();
                 Intent i = new Intent(SignIn_Activity.this, PartnerSignInActivity.class);
                 startActivity(i);
+                loadingBar.dismiss();
             }
         });
     }
@@ -178,10 +184,20 @@ public class SignIn_Activity extends AppCompatActivity {
             Toast.makeText(this, "Please Enter Password", Toast.LENGTH_SHORT).show();
             signUpPassword.requestFocus();
         }
-        else if (TextUtils.isEmpty(name))
+        else if (TextUtils.isEmpty(name) )
         {
             Toast.makeText(this, "Please Enter your full name", Toast.LENGTH_SHORT).show();
             signUpPassword.requestFocus();
+        }
+        else if (password.length() < 8)
+        {
+            Toast.makeText(this, "Your password must be atleast of 8 characters", Toast.LENGTH_SHORT).show();
+            signUpPassword.requestFocus();
+        }
+        else if (!email.matches(emailPattern))
+        {
+            Toast.makeText(this, "Invalid Email", Toast.LENGTH_SHORT).show();
+            signUpEmail.requestFocus();
         }
         else
         {
@@ -272,6 +288,10 @@ public class SignIn_Activity extends AppCompatActivity {
         }
     }
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        loadingBar.setTitle("Login Account");
+        loadingBar.setMessage("Please wait. While we are checking credentials");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             if (account != null) {
