@@ -7,4 +7,6 @@
     <color name="dark_pink">#e75480</color>
     <color name="transparent">#00000000</color>
     <color name="colorBlack">#000000</color>
+
+    <color name="successgreen">#00ff00</color>
 </resources>

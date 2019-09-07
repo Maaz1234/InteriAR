@@ -23,6 +23,7 @@ import com.maaz.interiar.ui.PartnerDrawer.FollowersActivity;
 import com.maaz.interiar.ui.PartnerDrawer.MyProductsActivity;
 import com.maaz.interiar.ui.PartnerDrawer.NotificationActivity;
 import com.maaz.interiar.ui.PartnerDrawer.SettingsActivity;
+import com.maaz.interiar.ui.activities.ProductDetailsActivity;
 
 
 import androidx.drawerlayout.widget.DrawerLayout;
