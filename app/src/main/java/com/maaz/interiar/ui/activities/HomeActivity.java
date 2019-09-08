@@ -1,22 +1,32 @@
 package com.maaz.interiar.ui.activities;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.maaz.interiar.R;
+import com.maaz.interiar.ui.Models.HorizontalProductScrollModel;
 import com.maaz.interiar.ui.Models.SliderModel;
+import com.maaz.interiar.ui.adapters.HorizontalProductScrollAdapter;
 import com.maaz.interiar.ui.adapters.PagerViewAdapter;
 import com.maaz.interiar.ui.adapters.SliderAdapter;
 import com.maaz.interiar.ui.fragments.BrandsFragment;
@@ -38,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
     ViewPager viewPagerMain;
     PagerViewAdapter mainPagerAdapter;
     AppBarLayout appBarLayout;
+
     ///////////// Banner Slider
     private ViewPager bannerSliderViewPager;
     private List<SliderModel> sliderModelList;
@@ -46,6 +57,21 @@ public class HomeActivity extends AppCompatActivity {
     final private long DELAY_TIME = 3000;
     final private long PERIOD_TIME = 3000;
     //////////// Banner Slider
+
+
+    /*Strip Ad*/
+    private ImageView stripAdImage;
+    private ConstraintLayout  stripAdContainer;
+
+    FrameLayout homeFragmentContainerForStripAd;
+    /*Strip Ad*/
+
+    /*Horizontal Product Layout*/
+    private TextView horizontalLayoutTitle;
+    private Button horizontalLayoutViewAllBtn;
+    private RecyclerView horizontalRecyclerView;
+    /*Horizontal Product Layout*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +84,8 @@ public class HomeActivity extends AppCompatActivity {
         appBarLayout = findViewById(R.id.appBarLayoutHome);
 
         viewPagerMain = findViewById(R.id.viewPagerMain);
+
+        homeFragmentContainerForStripAd = findViewById(R.id.home_fragment_container_for_strip_ad);
 
         mainPagerAdapter = new PagerViewAdapter(getSupportFragmentManager());
 
@@ -81,12 +109,16 @@ public class HomeActivity extends AppCompatActivity {
                     bottomNavigationView.setVisibility(View.INVISIBLE);
                     appBarLayout.setVisibility(View.INVISIBLE);
                     bannerSliderViewPager.setVisibility(View.INVISIBLE);
+
+                    homeFragmentContainerForStripAd.setVisibility(View.INVISIBLE);
                 }
                 else if (position == 1)
                 {
                     bottomNavigationView.setVisibility(View.VISIBLE);
                     appBarLayout.setVisibility(View.VISIBLE);
                     bannerSliderViewPager.setVisibility(View.VISIBLE);
+
+                    homeFragmentContainerForStripAd.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -114,8 +146,8 @@ public class HomeActivity extends AppCompatActivity {
                         loadFragment(fragment);
                         break;
                     case R.id.nav_cart:
-                        bannerSliderViewPager.setVisibility(View.INVISIBLE);
-                        appBarLayout.setVisibility(View.INVISIBLE);
+                        /*bannerSliderViewPager.setVisibility(View.INVISIBLE);
+                        appBarLayout.setVisibility(View.INVISIBLE);*/
                         fragment = new CartFragment();
                         bottomNavigationView.getMenu().findItem(R.id.nav_cart).setChecked(true);
                         loadFragment(fragment);
@@ -224,7 +256,38 @@ public class HomeActivity extends AppCompatActivity {
 
         /////////Banner Slider
 
+        /*Strip Ad*/
+        stripAdImage = findViewById(R.id.strip_ad_image);
+        stripAdContainer = findViewById(R.id.strip_ad_container);
 
+        stripAdImage.setImageResource(R.drawable.strip_ad);
+        stripAdContainer.setBackgroundColor(Color.parseColor("#000000"));
+        /*Strip Ad*/
+
+        /*Horizontal Product Layout*/
+        horizontalLayoutTitle = findViewById(R.id.horizontal_scroll_layout_title);
+        horizontalLayoutViewAllBtn = findViewById(R.id.horizontal_scroll_view_all_btn);
+        horizontalRecyclerView = findViewById(R.id.horizontal_product_recyclerview);
+
+
+        List<HorizontalProductScrollModel> horizontalProductScrollModelList = new ArrayList<>();
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.relaxer,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.table,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.sofa,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.chair,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.kitchen,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.bath,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.outdoor,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.ligthing,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
+/*
+        HorizontalProductScrollAdapter horizontalProductScrollAdapter = new HorizontalProductScrollAdapter(horizontalProductScrollModelList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        horizontalRecyclerView.setLayoutManager(linearLayoutManager);
+
+        horizontalRecyclerView.setAdapter(horizontalProductScrollAdapter);*/
+
+        /*Horizontal Product Layout*/
     }
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

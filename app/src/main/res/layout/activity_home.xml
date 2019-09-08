@@ -69,10 +69,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayoutHome"
         >
+
+<!--
         <include layout="@layout/sliding_ad_layout"/>
+-->
+
+        <include layout="@layout/horizontal_scroll_layout"/>
     </FrameLayout>
 
 
+    <FrameLayout
+        android:id="@+id/home_fragment_container_for_strip_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_fragment_container">
+
+        <include layout="@layout/strip_ad_layout" />
+
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

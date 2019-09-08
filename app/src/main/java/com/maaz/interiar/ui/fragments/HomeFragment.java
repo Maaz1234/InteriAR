@@ -42,6 +42,8 @@ public class HomeFragment extends Fragment {
 //    //////////// Banner Slider
 
     FrameLayout frameLayout;
+    FrameLayout frameLayoutStripAd;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         frameLayout = view.findViewById(R.id.home_fragment_container);
+        frameLayoutStripAd = view.findViewById(R.id.home_fragment_container_for_strip_ad);
 
 //        /////////Banner Slider
 //
