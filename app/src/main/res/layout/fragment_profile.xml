@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/profile_Fragment_Layout"
     android:layout_width="match_parent"
+    android:background="@color/cardview_light_background"
     android:layout_height="match_parent"
     >
 
@@ -29,6 +31,7 @@
                     android:textSize="18sp"
                     android:maxLines="1"
                     android:textStyle="bold"
+                    android:text="InteriAR Partner"
                     android:textColor="@android:color/background_light"
                     android:id="@+id/username_profile"
                     />
@@ -73,6 +76,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:id="@+id/user_image_profile"
+                    android:src="@drawable/profile"
                     />
 
                 <LinearLayout
@@ -104,19 +108,20 @@
                                 android:layout_gravity="center"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
+                                android:text="20"
                                 />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="posts"
+                                android:text="Ideabooks"
                                 />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="35dp"
+                            android:layout_marginLeft="10dp"
                             android:orientation="vertical"
                             >
 
@@ -128,19 +133,20 @@
                                 android:layout_gravity="center"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
+                                android:text="230"
                                 />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="followers"
+                                android:text="Followers"
                                 />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="35dp"
+                            android:layout_marginLeft="10dp"
                             android:orientation="vertical"
                             >
 
@@ -152,12 +158,13 @@
                                 android:layout_gravity="center"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
+                                android:text="150"
                                 />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="following"
+                                android:text="Following"
                                 />
                         </LinearLayout>
 
@@ -166,9 +173,10 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+
                         android:id="@+id/btn_edit_profile"
-                        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+                        android:text="Edit Your Profile"
+                        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                         />
 
                 </LinearLayout>
@@ -187,20 +195,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:id="@+id/fullname"
+                    android:id="@+id/user_Full_Name"
                     android:textStyle="bold"
                     android:textSize="16sp"
+                    android:text="Maaz Maqsood"
                     android:textColor="@android:color/background_dark"
                     />
 
-                <TextView
+<!--                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:id="@+id/bio"
-                    android:maxLines="5"
+                    android:maxLines="2"
+                    android:text="maaz19972016@gmail.com"
                     android:textColor="@android:color/background_dark"
-                    />
+                    />-->
 
             </LinearLayout>
 
@@ -211,7 +221,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:id="@+id/last_bar"
-                android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+                android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
                 android:orientation="horizontal"
                 >
 
@@ -219,7 +229,7 @@
                     android:layout_width="1dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/my_Photos"
+                    android:id="@+id/my_Ideabook"
                     android:src="@drawable/ic_grid"
                     style="?android:attr/buttonBarButtonStyle"
                     />
@@ -228,7 +238,7 @@
                     android:layout_width="1dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/saved_Photos"
+                    android:id="@+id/my_Saved_Products"
                     android:src="@drawable/ic_save"
                     style="?android:attr/buttonBarButtonStyle"
                     />
@@ -238,14 +248,14 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/recycler_view_photos"
+                android:id="@+id/recycler_view_Ideabook"
                 />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                android:id="@+id/recycler_view_save"
+                android:id="@+id/recycler_view_save_Products"
                 />
 
         </LinearLayout>

@@ -31,7 +31,7 @@
         app:menu="@menu/bottom_navigation">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <com.google.android.material.appbar.AppBarLayout
+<!--    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayoutHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,11 +70,11 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarLayoutHome"
         >
 
+&lt;!&ndash;
         <include layout="@layout/sliding_ad_layout"/>
+&ndash;&gt;
 
-<!--
         <include layout="@layout/horizontal_scroll_layout"/>
--->
     </FrameLayout>
 
 
@@ -88,7 +88,7 @@
 
         <include layout="@layout/strip_ad_layout" />
 
-    </FrameLayout>
+    </FrameLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

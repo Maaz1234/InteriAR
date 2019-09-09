@@ -30,6 +30,7 @@ import com.maaz.interiar.ui.adapters.SliderAdapter;
 import com.maaz.interiar.ui.fragments.BrandsFragment;
 import com.maaz.interiar.ui.fragments.CameraFragment;
 import com.maaz.interiar.ui.fragments.CartFragment;
+import com.maaz.interiar.ui.fragments.FavoritesFragment;
 import com.maaz.interiar.ui.fragments.HomeFragment;
 import com.maaz.interiar.ui.fragments.Photofragment;
 import com.maaz.interiar.ui.fragments.Profilefragment;
@@ -45,9 +46,11 @@ public class HomeActivity extends AppCompatActivity {
     Fragment currentFragment;
     ViewPager viewPagerMain;
     PagerViewAdapter mainPagerAdapter;
-    AppBarLayout appBarLayout;
+    ConstraintLayout constraintLayout;
+    ConstraintLayout homeFragmentLayout;
+    //AppBarLayout appBarLayout;
 
-    ///////////// Banner Slider
+/*    ///////////// Banner Slider
     private ViewPager bannerSliderViewPager;
     private List<SliderModel> sliderModelList;
     private int currentPage = 2;
@@ -57,18 +60,18 @@ public class HomeActivity extends AppCompatActivity {
     //////////// Banner Slider
 
 
-    /*Strip Ad*/
+    *//*Strip Ad*//*
     private ImageView stripAdImage;
     private ConstraintLayout  stripAdContainer;
 
     FrameLayout homeFragmentContainerForStripAd;
-    /*Strip Ad*/
+    *//*Strip Ad*//*
 
-    /*Horizontal Product Layout*/
+    *//*Horizontal Product Layout*//*
     private TextView horizontalLayoutTitle;
     private Button horizontalLayoutViewAllBtn;
     private RecyclerView horizontalRecyclerView;
-    /*Horizontal Product Layout*/
+    *//*Horizontal Product Layout*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +82,13 @@ public class HomeActivity extends AppCompatActivity {
 
         final BottomNavigationView bottomNavigationView = findViewById(R.id.navi_bar);
 
-        appBarLayout = findViewById(R.id.appBarLayoutHome);
+        //appBarLayout = findViewById(R.id.appBarLayoutHome);
 
+        homeFragmentLayout = findViewById(R.id.home_fragment_layout);
+        constraintLayout = findViewById(R.id.frame_layout_home);
         viewPagerMain = findViewById(R.id.viewPagerMain);
 
-        homeFragmentContainerForStripAd = findViewById(R.id.home_fragment_container_for_strip_ad);
+        //homeFragmentContainerForStripAd = findViewById(R.id.home_fragment_container_for_strip_ad);
 
         mainPagerAdapter = new PagerViewAdapter(getSupportFragmentManager());
 
@@ -93,6 +98,9 @@ public class HomeActivity extends AppCompatActivity {
 
         viewPagerMain.setAdapter(mainPagerAdapter);
         viewPagerMain.setCurrentItem(1);
+        //loadFragment(new HomeFragment());
+
+        final Fragment fragment = new HomeFragment();
 
         viewPagerMain.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -102,21 +110,22 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                if (position == 0 || position == 2)
+                if (position == 0)
                 {
                     bottomNavigationView.setVisibility(View.INVISIBLE);
-                    appBarLayout.setVisibility(View.INVISIBLE);
-                    bannerSliderViewPager.setVisibility(View.INVISIBLE);
-
-                    homeFragmentContainerForStripAd.setVisibility(View.INVISIBLE);
+                    viewPagerMain.setCurrentItem(0,true);
+                    loadFragment(new CameraFragment());
                 }
                 else if (position == 1)
                 {
-                    bottomNavigationView.setVisibility(View.VISIBLE);
-                    appBarLayout.setVisibility(View.VISIBLE);
-                    bannerSliderViewPager.setVisibility(View.VISIBLE);
-
-                    homeFragmentContainerForStripAd.setVisibility(View.VISIBLE);
+                    loadFragment(new HomeFragment());
+                    viewPagerMain.setCurrentItem(1,true);
+                }
+                else if (position == 2)
+                {
+                    bottomNavigationView.setVisibility(View.INVISIBLE);
+                    loadFragment(new Profilefragment());
+                    viewPagerMain.setCurrentItem(2,true);
                 }
             }
 
@@ -137,36 +146,36 @@ public class HomeActivity extends AppCompatActivity {
                 currentFragment = null;
                 switch (menuItem.getItemId()) {
                     case R.id.nav_home:
-                        appBarLayout.setVisibility(View.VISIBLE);
-                        bannerSliderViewPager.setVisibility(View.VISIBLE);
+
                         fragment = new HomeFragment();
+                        viewPagerMain.setCurrentItem(1);
                         bottomNavigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
                         loadFragment(fragment);
                         break;
+
                     case R.id.nav_cart:
-                        /*bannerSliderViewPager.setVisibility(View.INVISIBLE);
-                        appBarLayout.setVisibility(View.INVISIBLE);*/
+
                         fragment = new CartFragment();
                         bottomNavigationView.getMenu().findItem(R.id.nav_cart).setChecked(true);
                         loadFragment(fragment);
                         break;
+
                     case R.id.nav_photo:
-                        bannerSliderViewPager.setVisibility(View.INVISIBLE);
-                        appBarLayout.setVisibility(View.INVISIBLE);
+
                         fragment = new Photofragment();
                         bottomNavigationView.getMenu().findItem(R.id.nav_photo).setChecked(true);
                         loadFragment(fragment);
                         break;
+
                     case R.id.nav_profile:
-                        bannerSliderViewPager.setVisibility(View.INVISIBLE);
-                        appBarLayout.setVisibility(View.INVISIBLE);
+
                         fragment = new Profilefragment();
                         bottomNavigationView.getMenu().findItem(R.id.nav_profile).setChecked(true);
                         loadFragment(fragment);
                         break;
+
                     case R.id.nav_cam:
-                        bannerSliderViewPager.setVisibility(View.INVISIBLE);
-                        appBarLayout.setVisibility(View.INVISIBLE);
+
                         fragment = new BrandsFragment();
                         bottomNavigationView.getMenu().findItem(R.id.nav_cam).setChecked(true);
                         loadFragment(fragment);
@@ -176,7 +185,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        SearchView searchView = findViewById(R.id.searchView);
+/*        SearchView searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -187,8 +196,9 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 return false;
             }
-        });
+        });*/
 
+/*
         /////////Banner Slider
 
         bannerSliderViewPager = findViewById(R.id.banner_slider_view_pager);
@@ -253,16 +263,17 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         /////////Banner Slider
+*/
 
-        /*Strip Ad*/
+/*        *//*Strip Ad*//*
         stripAdImage = findViewById(R.id.strip_ad_image);
         stripAdContainer = findViewById(R.id.strip_ad_container);
 
         stripAdImage.setImageResource(R.drawable.strip_ad);
         stripAdContainer.setBackgroundColor(Color.parseColor("#000000"));
-        /*Strip Ad*/
+        *//*Strip Ad*//*
 
-        /*Horizontal Product Layout*/
+        *//*Horizontal Product Layout*//*
         horizontalLayoutTitle = findViewById(R.id.horizontal_scroll_layout_title);
         horizontalLayoutViewAllBtn = findViewById(R.id.horizontal_scroll_view_all_btn);
         horizontalRecyclerView = findViewById(R.id.horizontal_product_recyclerview);
@@ -277,23 +288,24 @@ public class HomeActivity extends AppCompatActivity {
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.bath,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.outdoor,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.ligthing,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
-/*
+*//*
         HorizontalProductScrollAdapter horizontalProductScrollAdapter = new HorizontalProductScrollAdapter(horizontalProductScrollModelList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         horizontalRecyclerView.setLayoutManager(linearLayoutManager);
 
-        horizontalRecyclerView.setAdapter(horizontalProductScrollAdapter);*/
+        horizontalRecyclerView.setAdapter(horizontalProductScrollAdapter);*//*
 
-        /*Horizontal Product Layout*/
+        *//*Horizontal Product Layout*/
     }
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_layout_home, fragment);
-        transaction.addToBackStack(null);
+        //transaction.addToBackStack(null);
         transaction.commit();
     }
 
+/*
     /////////Banner Slider
 
     private void pageLooper()
@@ -338,5 +350,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     /////////Banner Slider
+*/
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }
