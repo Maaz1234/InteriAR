@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.ProductDetailsActivity"></activity>
+        <activity android:name=".ui.activities.OrderDetailsActivity"></activity>
+        <activity android:name=".ui.activities.MyOrdersActivity" />
+        <activity android:name=".ui.activities.ProductDetailsActivity" />
         <activity android:name=".ui.Partner.AddNewProductActivity" />
         <activity android:name=".ui.Partner.AddNewProductByCategoryActivity" />
         <activity
