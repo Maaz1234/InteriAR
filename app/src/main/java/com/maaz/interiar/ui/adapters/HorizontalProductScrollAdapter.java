@@ -48,7 +48,17 @@ public class HorizontalProductScrollAdapter  extends RecyclerView.Adapter<Horizo
 
     @Override
     public int getItemCount() {
-        return horizontalProductScrollModelList.size();
+
+        /*Maximum 8 view are visible in horizont Product Scroll Layout*/
+        if (horizontalProductScrollModelList.size() > 8)
+        {
+            return 8;
+        }
+        else
+        {
+            return horizontalProductScrollModelList.size();
+        }
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
