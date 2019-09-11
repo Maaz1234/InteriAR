@@ -373,7 +373,7 @@
             android:textAlignment="center" />-->
 
 
-        <com.facebook.login.widget.LoginButton
+        <Button
             android:id="@+id/fb_button"
             android:layout_width="148dp"
             android:layout_height="45dp"

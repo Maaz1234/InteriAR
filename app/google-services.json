@@ -15,19 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "88785554627-elmbqoqnmnk79cr2uufevn8178pr4iv8.apps.googleusercontent.com",
+          "client_id": "88785554627-20gbiagbij0va3cl0veq049g6v42cd47.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.maaz.interiar",
             "certificate_hash": "a8f5ee3124db902e6bcbde8bd36d4d0b31bed32a"
-          }
-        },
-        {
-          "client_id": "88785554627-esks7i4m8dh6go26pib0eeenea2lh6eo.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.maaz.interiar",
-            "certificate_hash": "e60b398674c45de3f343fdc1c7082ac1f1b87fb4"
           }
         },
         {

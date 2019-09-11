@@ -22,6 +22,7 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -47,6 +48,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.maaz.interiar.R;
 import com.maaz.interiar.ui.Partner.PartnerSignInActivity;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class SignIn_Activity extends AppCompatActivity {
@@ -55,8 +57,7 @@ public class SignIn_Activity extends AppCompatActivity {
     private RadioButton radioSigninBtn, radioSignupBtn;
     private TextView forgetPassword, divider_text, become_partner_text;
     private EditText signInEmail, signInPassword, signUpName, signUpEmail, signUpPassword;
-    private Button loginButton, googleButton;
-    private LoginButton facebookButton;
+    private Button loginButton, googleButton, facebookButton;
     private ProgressDialog loadingBar;
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth mAuth;
@@ -162,11 +163,18 @@ public class SignIn_Activity extends AppCompatActivity {
             }
         });
 
+        facebookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoginManager.getInstance().logInWithReadPermissions(SignIn_Activity.this, Arrays.asList("public_profile", "email"));
+            }
+        });
+
         callbackManager = CallbackManager.Factory.create();
 
-        facebookButton.setReadPermissions("email", "public_profile");
+        //facebookButton.setReadPermissions("email", "public_profile");
 
-        facebookButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult)
             {
@@ -376,7 +384,7 @@ public class SignIn_Activity extends AppCompatActivity {
                             AddUserToDatabase();
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(SignIn_Activity.this, "signInResult:failed code=" + task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignIn_Activity.this, "signInResult:failed code=" + task.getException(), Toast.LENGTH_LONG).show();
                         }
 
                         // ...
