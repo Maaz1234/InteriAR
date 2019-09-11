@@ -9,4 +9,5 @@
     <color name="colorBlack">#000000</color>
 
     <color name="successgreen">#00FF00</color>
+    <color name="RecyclerViewBackground">#d6d6d6</color>
 </resources>

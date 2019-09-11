@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
@@ -17,14 +18,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.maaz.interiar.R;
+import com.maaz.interiar.ui.Models.HomePageModel;
 import com.maaz.interiar.ui.Models.HorizontalProductScrollModel;
 import com.maaz.interiar.ui.Models.SliderModel;
+import com.maaz.interiar.ui.adapters.GridProductLayoutAdapter;
+import com.maaz.interiar.ui.adapters.HomePageAdapter;
+import com.maaz.interiar.ui.adapters.HorizontalProductScrollAdapter;
 import com.maaz.interiar.ui.adapters.SliderAdapter;
 
 import java.util.ArrayList;
@@ -75,11 +81,11 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        homeFragmentContainerForStripAd = view.findViewById(R.id.home_fragment_container_for_strip_ad);
+       /* homeFragmentContainerForStripAd = view.findViewById(R.id.home_fragment_container_for_strip_ad);
 
         appBarLayout = view.findViewById(R.id.appBarLayoutHome);
         frameLayout = view.findViewById(R.id.home_fragment_container);
-        frameLayoutStripAd = view.findViewById(R.id.home_fragment_container_for_strip_ad);
+        frameLayoutStripAd = view.findViewById(R.id.home_fragment_container_for_strip_ad);*/
 
         SearchView searchView = view.findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -170,7 +176,7 @@ public class HomeFragment extends Fragment {
         /*Horizontal Product Layout*/
         horizontalLayoutTitle = view.findViewById(R.id.horizontal_scroll_layout_title);
         horizontalLayoutViewAllBtn = view.findViewById(R.id.horizontal_scroll_view_all_btn);
-        horizontalRecyclerView = view.findViewById(R.id.horizontal_product_recyclerview);
+        horizontalRecyclerView = view.findViewById(R.id.horizontal_scroll_layout_recyclerview);
 
 
         List<HorizontalProductScrollModel> horizontalProductScrollModelList = new ArrayList<>();
@@ -182,16 +188,57 @@ public class HomeFragment extends Fragment {
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.bath,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.outdoor,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.ligthing,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
-/*
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.bath,"Relaxer", "Grey Relaxer", "Rs.5999/-"));
+
         HorizontalProductScrollAdapter horizontalProductScrollAdapter = new HorizontalProductScrollAdapter(horizontalProductScrollModelList);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         horizontalRecyclerView.setLayoutManager(linearLayoutManager);
 
-        horizontalRecyclerView.setAdapter(horizontalProductScrollAdapter);*/
+        horizontalRecyclerView.setAdapter(horizontalProductScrollAdapter);
+        horizontalProductScrollAdapter.notifyDataSetChanged();
 
         /*Horizontal Product Layout*/
 
+
+        /*Grid Product Layout*/
+
+        TextView gridLayoutTitle = view.findViewById(R.id.grid_product_layout_title);
+        Button gridLayoutViewAllBtn = view.findViewById(R.id.grid_product_layout_viewall_btn);
+        GridView gridView = view.findViewById(R.id.grid_product_layout_gridview);
+
+        gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
+
+        /*Grid Product Layout*/
+
+
+        //////////////////////////////Testing Recycler View
+
+        RecyclerView testing = view.findViewById(R.id.testingRecyclerView);
+        LinearLayoutManager testingLayoutManager = new LinearLayoutManager(getContext());
+        testingLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        testing.setLayoutManager(testingLayoutManager);
+
+        List<HomePageModel> homePageModelList = new ArrayList<>();
+        /*homePageModelList.add(new HomePageModel(0,sliderModelList));*/
+        homePageModelList.add(new HomePageModel(1,R.drawable.strip_ad,"#000000"));
+        homePageModelList.add(new HomePageModel(2,"Deals of the Day",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(3,"Deals of the Day",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.strip_ad,"#000000"));
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+
+        homePageModelList.add(new HomePageModel(3,"Deals of the Day",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(2,"Deals of the Day",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.strip_ad,"#ff0000"));
+        /*homePageModelList.add(new HomePageModel(0,sliderModelList));*/
+
+        HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
+        testing.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        //////////////////////////////Testing Recycler View
 
         return view;
     }

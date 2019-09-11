@@ -144,7 +144,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/happy_shopping_image"
         android:layout_width="100dp"
         android:layout_height="75dp"
         android:layout_marginStart="16dp"
