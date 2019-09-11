@@ -132,10 +132,9 @@ public class HomePageAdapter extends RecyclerView.Adapter
             super(itemView);
 
             bannerSliderViewPager = itemView.findViewById(R.id.banner_slider_view_pager);
-
         }
 
-        private void setBannerSliderViewPager(final List<SliderModel> sliderModelList) {
+        private void setBannerSliderViewPager(final List<SliderModel> sliderModelList)  {
             SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
             bannerSliderViewPager.setAdapter(sliderAdapter);
             bannerSliderViewPager.setClipToPadding(false);

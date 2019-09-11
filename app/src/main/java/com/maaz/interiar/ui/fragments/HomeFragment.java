@@ -1,5 +1,6 @@
 package com.maaz.interiar.ui.fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -19,15 +20,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.maaz.interiar.R;
 import com.maaz.interiar.ui.Models.HomePageModel;
 import com.maaz.interiar.ui.Models.HorizontalProductScrollModel;
 import com.maaz.interiar.ui.Models.SliderModel;
+import com.maaz.interiar.ui.activities.AssistantActivity;
 import com.maaz.interiar.ui.adapters.GridProductLayoutAdapter;
 import com.maaz.interiar.ui.adapters.HomePageAdapter;
 import com.maaz.interiar.ui.adapters.HorizontalProductScrollAdapter;
@@ -74,6 +78,10 @@ public class HomeFragment extends Fragment {
     FrameLayout frameLayout;
     FrameLayout frameLayoutStripAd;
 
+    /*Toolbar*/
+    private ImageButton assistantImageBtn;
+    /*Toolbar*/
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -81,13 +89,15 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+
        /* homeFragmentContainerForStripAd = view.findViewById(R.id.home_fragment_container_for_strip_ad);
 
         appBarLayout = view.findViewById(R.id.appBarLayoutHome);
         frameLayout = view.findViewById(R.id.home_fragment_container);
         frameLayoutStripAd = view.findViewById(R.id.home_fragment_container_for_strip_ad);*/
 
-        SearchView searchView = view.findViewById(R.id.searchView);
+        /*SearchView searchView = view.findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -98,7 +108,22 @@ public class HomeFragment extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 return false;
             }
+        });*/
+
+
+        /*Toolbar*/
+        assistantImageBtn = (ImageButton) view.findViewById(R.id.assistant_image_btn);
+        assistantImageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), AssistantActivity.class);
+                startActivity(i);
+            }
         });
+        /*Toolbar*/
+
+
+
 
         /////////Banner Slider
 
@@ -149,6 +174,7 @@ public class HomeFragment extends Fragment {
         bannerSliderViewPager.addOnPageChangeListener(onPageChangeListener);
 
         startBannerSlideShow();
+
 
         bannerSliderViewPager.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -216,23 +242,21 @@ public class HomeFragment extends Fragment {
         //////////////////////////////Testing Recycler View
 
         RecyclerView testing = view.findViewById(R.id.testingRecyclerView);
-        LinearLayoutManager testingLayoutManager = new LinearLayoutManager(getContext());
-        testingLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        testing.setLayoutManager(testingLayoutManager);
+        LinearLayoutManager testinglayoutmanager = new LinearLayoutManager(getContext());
+        testinglayoutmanager.setOrientation(LinearLayoutManager.VERTICAL);
+        testing.setLayoutManager(testinglayoutmanager);
 
         List<HomePageModel> homePageModelList = new ArrayList<>();
-        /*homePageModelList.add(new HomePageModel(0,sliderModelList));*/
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
         homePageModelList.add(new HomePageModel(1,R.drawable.strip_ad,"#000000"));
         homePageModelList.add(new HomePageModel(2,"Deals of the Day",horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(3,"Deals of the Day",horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(1,R.drawable.strip_ad,"#000000"));
         homePageModelList.add(new HomePageModel(0,sliderModelList));
-        homePageModelList.add(new HomePageModel(0,sliderModelList));
-
         homePageModelList.add(new HomePageModel(3,"Deals of the Day",horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(2,"Deals of the Day",horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(1,R.drawable.strip_ad,"#ff0000"));
-        /*homePageModelList.add(new HomePageModel(0,sliderModelList));*/
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
 
         HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
         testing.setAdapter(adapter);
@@ -293,4 +317,6 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
     }
+
+
 }

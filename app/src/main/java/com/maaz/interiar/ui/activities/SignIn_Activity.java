@@ -96,8 +96,8 @@ public class SignIn_Activity extends AppCompatActivity {
             Intent intent = new Intent(SignIn_Activity.this, HomeActivity.class);
             startActivity(intent);
             loadingBar.dismiss();
+            finish();
         }
-
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i)
@@ -216,6 +216,7 @@ public class SignIn_Activity extends AppCompatActivity {
                                 AddUserToDatabase();
                                 Intent intent = new Intent(SignIn_Activity.this, HomeActivity.class);
                                 startActivity(intent);
+                                finish();
                             }
                             else
                             {
@@ -258,6 +259,7 @@ public class SignIn_Activity extends AppCompatActivity {
                                 //AddUserToDatabase();
                                 Intent intent = new Intent(SignIn_Activity.this, HomeActivity.class);
                                 startActivity(intent);
+                                finish();
                             }
                             else
                             {

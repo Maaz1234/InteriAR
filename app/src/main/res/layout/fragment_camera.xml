@@ -16,7 +16,9 @@
         app:cameraAudio="off"
         app:cameraFilter="@string/cameraview_filter_none"
         app:cameraHdr="on"
-        app:cameraMode="picture" />
+        app:cameraMode="picture"
+
+        />
 
     <Button
         android:id="@+id/buttonCapture"

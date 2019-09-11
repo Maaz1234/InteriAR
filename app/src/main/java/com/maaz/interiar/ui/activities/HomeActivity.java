@@ -1,11 +1,13 @@
 package com.maaz.interiar.ui.activities;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -13,6 +15,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -34,6 +37,7 @@ import com.maaz.interiar.ui.fragments.FavoritesFragment;
 import com.maaz.interiar.ui.fragments.HomeFragment;
 import com.maaz.interiar.ui.fragments.Photofragment;
 import com.maaz.interiar.ui.fragments.Profilefragment;
+import com.maaz.interiar.ui.fragments.UserNotificationsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,6 +83,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         //currentFragment = new HomeFragment();
+
 
         final BottomNavigationView bottomNavigationView = findViewById(R.id.navi_bar);
 
@@ -174,10 +179,10 @@ public class HomeActivity extends AppCompatActivity {
                         loadFragment(fragment);
                         break;
 
-                    case R.id.nav_cam:
+                    case R.id.nav_user_notifications:
 
-                        fragment = new BrandsFragment();
-                        bottomNavigationView.getMenu().findItem(R.id.nav_cam).setChecked(true);
+                        fragment = new UserNotificationsFragment();
+                        bottomNavigationView.getMenu().findItem(R.id.nav_user_notifications).setChecked(true);
                         loadFragment(fragment);
                         break;
                 }
@@ -352,8 +357,39 @@ public class HomeActivity extends AppCompatActivity {
     /////////Banner Slider
 */
 
+    /*@Override
+    public void onBackPressed() {
+
+
+        super.onBackPressed();
+
+
+    }*/
+
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirmation!")
+                .setIcon(R.drawable.ic_warning_black_24dp)
+                .setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        finish();
+
+
+                        /*HomeActivity.this.finish();*/
+                        /*HomeActivity.super.onBackPressed();*/
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
     }
 }

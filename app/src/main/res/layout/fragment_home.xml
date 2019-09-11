@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_light_background"
+    android:focusableInTouchMode="true"
    >
     <!--android:orientation="vertical"-->
 
@@ -26,16 +27,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/appBarLayoutHome"
-            android:background="?android:attr/windowBackground"
+            android:background="@color/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
             app:layout_scrollFlags="scroll|enterAlways">
 
-            <SearchView
+            <ImageButton
+                android:id="@+id/camera_imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <ImageView
+                android:src="@drawable/interiar_logo_name"
+                android:layout_width="80dp"
+                android:layout_height="20dp" />
+
+
+            <!--<SearchView
                 android:id="@+id/searchView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:iconifiedByDefault="false"
                 android:orientation="horizontal"
-                android:queryHint="Search interiAR" />
+                android:layout_weight="2"
+                android:queryHint="Search interiAR" >
+
+            </SearchView>-->
+
+            <!-- <ImageButton
+                android:id="@+id/assistant_imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_assistant_black_24dp" />-->
+
+
+            <ImageButton
+                android:id="@+id/assistant_image_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="end"
+                android:clickable="true"
+                android:paddingRight="16dp"
+                app:srcCompat="@drawable/ic_assistant_black_24dp" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -124,7 +161,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/testingRecyclerView"
         android:layout_width="0dp"
-        android:layout_height="587dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
