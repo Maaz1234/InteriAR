@@ -204,6 +204,7 @@ public class SignIn_Activity extends AppCompatActivity {
                 loadingBar.show();
                 Intent i = new Intent(SignIn_Activity.this, PartnerSignInActivity.class);
                 startActivity(i);
+                finish();
                 loadingBar.dismiss();
             }
         });
@@ -225,6 +226,7 @@ public class SignIn_Activity extends AppCompatActivity {
             loadingBar.show();
             Intent intent = new Intent(SignIn_Activity.this, HomeActivity.class);
             startActivity(intent);
+            finish();
             loadingBar.dismiss();
         }
     }
@@ -322,6 +324,7 @@ public class SignIn_Activity extends AppCompatActivity {
                                 //AddUserToDatabase();
                                 Intent intent = new Intent(SignIn_Activity.this, HomeActivity.class);
                                 startActivity(intent);
+                                finish();
                             }
                             else
                             {
