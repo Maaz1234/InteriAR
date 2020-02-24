@@ -29,10 +29,10 @@ public class UserNotificationsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        RecyclerView notificationlist = (RecyclerView) findViewById.(R.id.notification_list);
-        notificationlist.setLayoutManager(new LinearLayoutManager(this));
-        String[] language = {"new product","50% discount","habit's new arrival","update","office collection","italian lamps","single beds"};
-        notificationlist.setAdapter(new NotificationListAdapter(language));
+        //RecyclerView notificationlist = (RecyclerView) findViewById.(R.id.notification_list);
+       /// notificationlist.setLayoutManager(new LinearLayoutManager(this));
+       // String[] language = {"new product","50% discount","habit's new arrival","update","office collection","italian lamps","single beds"};
+       // notificationlist.setAdapter(new NotificationListAdapter(language));
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user_notifications, container, false);
      return view;
