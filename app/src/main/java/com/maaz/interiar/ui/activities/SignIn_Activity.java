@@ -90,7 +90,6 @@ public class SignIn_Activity extends AppCompatActivity {
         loadingBar = new ProgressDialog(this);
         become_partner_text = findViewById(R.id.txt_Partner);
 
-
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
@@ -106,10 +105,8 @@ public class SignIn_Activity extends AppCompatActivity {
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i)
-            {
-                if(radioSigninBtn.isChecked())
-                {
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (radioSigninBtn.isChecked()) {
                     signUpName.setVisibility(View.INVISIBLE);
                     signUpEmail.setVisibility(View.INVISIBLE);
                     signUpPassword.setVisibility(View.INVISIBLE);
@@ -117,9 +114,7 @@ public class SignIn_Activity extends AppCompatActivity {
                     signInPassword.setVisibility(View.VISIBLE);
                     forgetPassword.setVisibility(View.VISIBLE);
                     divider_text.setText("Or SignIn with");
-                }
-                else
-                {
+                } else {
                     signUpName.setVisibility(View.VISIBLE);
                     signUpEmail.setVisibility(View.VISIBLE);
                     signUpPassword.setVisibility(View.VISIBLE);
@@ -133,26 +128,20 @@ public class SignIn_Activity extends AppCompatActivity {
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-
+            public void onClick(View v) {
                 /*Intent intent = new Intent(SignIn_Activity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();*/
 
-                if (radioSigninBtn.isChecked())
-                {
+                if (radioSigninBtn.isChecked()) {
                     SignInUser();
-                }
-                else if (radioSignupBtn.isChecked())
-                {
+                } else if (radioSignupBtn.isChecked()) {
                     SignUpUser();
                 }
             }
         });
 
-        googleButton.setOnClickListener(new View.OnClickListener()
-        {
+        googleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadingBar.setTitle("Logging in with Google");
@@ -176,26 +165,22 @@ public class SignIn_Activity extends AppCompatActivity {
 
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
-            public void onSuccess(LoginResult loginResult)
-            {
+            public void onSuccess(LoginResult loginResult) {
                 handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
             @Override
-            public void onCancel()
-            {
+            public void onCancel() {
 
             }
 
             @Override
-            public void onError(FacebookException error)
-            {
+            public void onError(FacebookException error) {
 
             }
         });
 
-        become_partner_text.setOnClickListener(new View.OnClickListener()
-        {
+        become_partner_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loadingBar.setTitle("Loading");
@@ -212,14 +197,12 @@ public class SignIn_Activity extends AppCompatActivity {
 
     ////// Function for checking if user is already logged in
 
-    private void checkingForAlreadyLoggedInUser()
-    {
+    private void checkingForAlreadyLoggedInUser() {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if (currentUser != null || account != null)
-        {
+        if (currentUser != null || account != null) {
             loadingBar.setTitle("Already Logged in");
             loadingBar.setMessage("Please wait...");
             loadingBar.setCanceledOnTouchOutside(false);
@@ -233,39 +216,27 @@ public class SignIn_Activity extends AppCompatActivity {
 
     ////// Function for signing up the new user
 
-    private void SignUpUser()
-    {
+    private void SignUpUser() {
         String email = signUpEmail.getText().toString();
         String password = signUpPassword.getText().toString();
         final String name = signUpName.getText().toString();
 
-        if(TextUtils.isEmpty(email))
-        {
+        if (TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show();
             signUpEmail.requestFocus();
-        }
-        else if (TextUtils.isEmpty(password))
-        {
+        } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please Enter Password", Toast.LENGTH_SHORT).show();
             signUpPassword.requestFocus();
-        }
-        else if (TextUtils.isEmpty(name) )
-        {
+        } else if (TextUtils.isEmpty(name)) {
             Toast.makeText(this, "Please Enter your full name", Toast.LENGTH_SHORT).show();
             signUpPassword.requestFocus();
-        }
-        else if (password.length() < 8)
-        {
+        } else if (password.length() < 8) {
             Toast.makeText(this, "Your password must be atleast of 8 characters", Toast.LENGTH_SHORT).show();
             signUpPassword.requestFocus();
-        }
-        else if (!email.matches(emailPattern))
-        {
+        } else if (!email.matches(emailPattern)) {
             Toast.makeText(this, "Invalid Email", Toast.LENGTH_SHORT).show();
             signUpEmail.requestFocus();
-        }
-        else
-        {
+        } else {
             loadingBar.setTitle("Creating Account");
             loadingBar.setMessage("Please wait. While we are checking credentials");
             loadingBar.setCanceledOnTouchOutside(false);
@@ -275,13 +246,10 @@ public class SignIn_Activity extends AppCompatActivity {
                     .addOnCompleteListener(SignIn_Activity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful())
-                            {
+                            if (task.isSuccessful()) {
                                 personName = name;
                                 AddUserToDatabase();
-                            }
-                            else
-                            {
+                            } else {
                                 String Error = task.getException().getMessage();
                                 Toast.makeText(SignIn_Activity.this, Error, Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
@@ -293,23 +261,17 @@ public class SignIn_Activity extends AppCompatActivity {
 
     ////// Function for signing in the user
 
-    private void SignInUser()
-    {
+    private void SignInUser() {
         String email = signInEmail.getText().toString();
         String password = signInPassword.getText().toString();
 
-        if(TextUtils.isEmpty(email))
-        {
+        if (TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show();
             signInEmail.requestFocus();
-        }
-        else if (TextUtils.isEmpty(password))
-        {
+        } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please Enter Password", Toast.LENGTH_SHORT).show();
             signInPassword.requestFocus();
-        }
-        else
-        {
+        } else {
             loadingBar.setTitle("Login Account");
             loadingBar.setMessage("Please wait. While we are checking credentials");
             loadingBar.setCanceledOnTouchOutside(false);
@@ -319,15 +281,12 @@ public class SignIn_Activity extends AppCompatActivity {
                     .addOnCompleteListener(SignIn_Activity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful())
-                            {
+                            if (task.isSuccessful()) {
                                 //AddUserToDatabase();
                                 Intent intent = new Intent(SignIn_Activity.this, HomeActivity.class);
                                 startActivity(intent);
                                 finish();
-                            }
-                            else
-                            {
+                            } else {
                                 Toast.makeText(SignIn_Activity.this, "Account with this EmailID does not exists", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
                             }
@@ -338,8 +297,7 @@ public class SignIn_Activity extends AppCompatActivity {
 
     ////// Functions for google sign in
 
-    private void SignInWithGoogle()
-    {
+    private void SignInWithGoogle() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
         loadingBar.dismiss();
@@ -360,6 +318,7 @@ public class SignIn_Activity extends AppCompatActivity {
             handleSignInResult(task);
         }
     }
+
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
@@ -397,30 +356,26 @@ public class SignIn_Activity extends AppCompatActivity {
 
     ////// Function for adding user to database
 
-    private void AddUserToDatabase()
-    {
-        HashMap<Object,String> userdata = new HashMap<>();
+    private void AddUserToDatabase() {
+        HashMap<Object, String> userdata = new HashMap<>();
 
-        if (checkGoogleOrFbSignIn == true)
-        {
+        if (checkGoogleOrFbSignIn == true) {
             GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(SignIn_Activity.this);
             personName = acct.getDisplayName();
             personEmail = acct.getEmail();
             personId = acct.getId();
             personPhoto = acct.getPhotoUrl();
 
-        }
-        else
-        {
+        } else {
             FirebaseUser User = mAuth.getCurrentUser();
             personEmail = User.getEmail();
             personId = User.getUid();
             personPhoto = null;
         }
 
-        userdata.put("Name",personName);
-        userdata.put("Email",personEmail);
-        userdata.put("UserID",personId);
+        userdata.put("Name", personName);
+        userdata.put("Email", personEmail);
+        userdata.put("UserID", personId);
 
 //        final DatabaseReference RootRef;
 //        RootRef = FirebaseDatabase.getInstance().getReference();

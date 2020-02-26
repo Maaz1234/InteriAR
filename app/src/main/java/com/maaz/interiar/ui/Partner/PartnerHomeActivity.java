@@ -196,21 +196,21 @@ public class PartnerHomeActivity extends AppCompatActivity
                     new NotificationFragment()).commit();*/
         }
 
-        else if (id == R.id.nav_followers)
-        {
-            Intent intent = new Intent(PartnerHomeActivity.this, FollowersActivity.class);
-            startActivity(intent);
+//        else if (id == R.id.nav_followers)
+//        {
+//            Intent intent = new Intent(PartnerHomeActivity.this, FollowersActivity.class);
+//            startActivity(intent);
             /*getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_partner,
                     new FollowersFragment()).commit();*/
-        }
+//        }
 
-        else if (id == R.id.nav_settings)
-        {
+//        else if (id == R.id.nav_settings)
+//        {
             Intent intent = new Intent(PartnerHomeActivity.this, SettingsActivity.class);
             startActivity(intent);
             /*getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_partner,
                     new SettingsFragment()).commit();*/
-        }
+//        }
 
        /* else if (id == R.id.nav_about_interiar)
         {

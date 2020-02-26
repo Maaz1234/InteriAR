@@ -231,8 +231,7 @@
                     android:layout_weight="1"
                     android:id="@+id/my_Ideabook"
                     android:src="@drawable/ic_grid"
-                    style="?android:attr/buttonBarButtonStyle"
-                    />
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <ImageButton
                     android:layout_width="1dp"

@@ -14,14 +14,14 @@
             android:id="@+id/nav_notification"
             android:icon="@drawable/ic_notifications_black_24dp"
             android:title="Notifications" />
-        <item
-            android:id="@+id/nav_followers"
-            android:icon="@drawable/ic_followers"
-            android:title="Followers" />
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Settings" />
+<!--        <item-->
+<!--            android:id="@+id/nav_followers"-->
+<!--            android:icon="@drawable/ic_followers"-->
+<!--            android:title="Followers" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_settings"-->
+<!--            android:icon="@drawable/ic_menu_manage"-->
+<!--            android:title="Settings" />-->
         <!--android:title="@string/menu_tools"-->
     </group>
 

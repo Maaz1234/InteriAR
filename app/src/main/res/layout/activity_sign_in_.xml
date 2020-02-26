@@ -15,7 +15,12 @@
             android:src="@drawable/background"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="-111dp" />
-
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:alpha="0.7"/>
 
         <ImageView
             android:id="@+id/imgView_logo"
@@ -27,7 +32,8 @@
             android:layout_marginEnd="8dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/interi_ar_logo_with_transparent_background"
+            android:backgroundTint="@color/colorPrimary"
+            android:background="@drawable/interi_ar_logo_with_transparent_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -297,6 +303,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:text="Or SignIn with"
+            android:visibility="gone"
             android:textColor="#460101"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -310,7 +317,7 @@
         <View
             android:layout_width="0dp"
             android:layout_height="2dp"
-
+            android:visibility="gone"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
@@ -332,6 +339,7 @@
             android:layout_marginBottom="16dp"
             android:layout_toLeftOf="@id/divider_txt"
             android:background="#460101"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/fb_button"
             app:layout_constraintEnd_toStartOf="@+id/divider_txt"
             app:layout_constraintHorizontal_bias="1.0"
@@ -383,6 +391,7 @@
             android:background="@drawable/btn_shape_facebook"
             android:drawableLeft="@drawable/ic_facebookappsymbol"
             android:drawablePadding="5dp"
+            android:visibility="gone"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:text="Facebook"
@@ -405,6 +414,7 @@
             android:drawablePadding="5dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:visibility="gone"
             android:text="Google"
             android:textAlignment="center"
             android:textColor="@android:color/darker_gray"
@@ -426,6 +436,7 @@
             android:textColor="#460101"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
